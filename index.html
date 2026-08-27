@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ku" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AYAD PHONE - زانیاری ئەکاونت</title>
+    <title>AYAD & AIMAN - Account Info</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -73,7 +73,7 @@
             height: 60px;
             background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
             color: #ffffff;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 800;
             display: flex;
             justify-content: center;
@@ -129,7 +129,6 @@
             color: #f87171;
         }
 
-        /* پەنجەرەی هۆشداری سەرەکی */
         #warningModal {
             position: absolute;
             top: 0;
@@ -151,7 +150,7 @@
             border-radius: 20px;
             padding: 20px;
             width: 100%;
-            text-align: right;
+            text-align: left;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
         }
         .warning-title {
@@ -197,7 +196,7 @@
         
         .field-group {
             margin-bottom: 15px;
-            text-align: right;
+            text-align: left;
         }
         .field-label {
             font-size: 12px;
@@ -241,7 +240,7 @@
             transition: background 0.2s, color 0.2s;
             display: flex;
             align-items: center;
-            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 1px solid rgba(255, 255, 255, 0.05);
             min-height: 45px;
         }
         .copy-btn:hover {
@@ -271,7 +270,7 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
             padding: 15px;
-            text-align: right;
+            text-align: left;
         }
         .code-header-row {
             display: flex;
@@ -337,39 +336,39 @@
 <body>
 
     <div class="container" id="mainContainer">
-        <!-- پەنجەرەی هۆشداری سەرەکی -->
+        <!-- Warning Modal -->
         <div id="warningModal">
             <div class="warning-box">
-                <div class="warning-title">⚠️ ئاگاداری گرنگ بۆ بەکارهێنان</div>
+                <div class="warning-title">⚠️ Important Warning</div>
                 <div class="warning-text">
-                    تکایە بە هیچ شێوازێک ئەم <span>Apple ID</span>ـە لە <span>Settings</span>ـی ئایفۆن داخڵ مەکه، تەنها و تەنها لە <span>App Store</span> داخڵ بکە!
+                    Please do NOT sign in with this <span>Apple ID</span> in iPhone <span>Settings</span>! Use it ONLY in the <span>App Store</span>.
                 </div>
-                <button class="agree-btn" onclick="showSecretData()">من ڕازیم، پیشاندانی زانیارییەکان</button>
+                <button class="agree-btn" onclick="showSecretData()">I Agree, Show Information</button>
             </div>
         </div>
 
         <div class="logo-container" id="logoContainer">
             <a href="" id="topWhatsappBtn" target="_blank" class="top-whatsapp-badge">
                 <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23ffffff' d='M16 0C7.163 0 0 7.163 0 16c0 2.825.735 5.483 2.025 7.788L.5 29.5l5.913-1.55C8.613 29.265 11.238 30 14 30c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29c-2.45 0-4.75-.688-6.713-1.888l-.488-.288-3.662.962.975-3.563-.313-.513A13.047 13.047 0 013 16C3 8.825 8.825 3 16 3s13 5.825 13 13-5.825 13-13 13zm7.475-9.438c-.413-.2-2.438-1.2-2.813-1.338-.375-.138-.65-.2-.925.2-.275.413-1.063 1.338-1.3 1.613-.238.275-.475.313-.888.113-.413-.2-1.738-.638-3.313-2.038-1.225-1.088-2.05-2.425-2.288-2.838-.238-.413-.025-.638.175-.838.175-.175.413-.45.625-.675.2-.225.275-.375.413-.625.138-.25.075-.475-.038-.675-.113-.2-.925-2.225-1.275-3.05-.338-.8-.675-.7-.925-.713h-.788c-.275 0-.725.1-1.1.5-.375.375-1.438 1.4-1.438 3.413 0 2.013 1.475 3.95 1.675 4.225.2.275 2.9 4.425 7.025 6.2 3.975 1.713 4.7 1.375 5.55 1.288.85-.088 2.438-1 2.775-1.963.338-.963.338-1.788.238-1.963-.1-.175-.375-.275-.788-.475z'/></svg>" class="top-whatsapp-img" alt="WhatsApp">
-                <span>واتسئاپ</span>
+                <span>WhatsApp</span>
             </a>
 
-            <div class="z-logo">AP</div>
-            <div class="company-title"><span>AYAD PHONE</span></div>
+            <div class="z-logo">A&A</div>
+            <div class="company-title"><span>AYAD & AIMAN</span></div>
             
             <div class="account-badge">
-                <span>ئەکاونت:</span>
+                <span>Account:</span>
                 <input type="text" id="accSmallInput" value="" readonly>
             </div>
         </div>
 
         <div id="content">
-            <div class="loading">چاوەڕوان بە، زانیارییەکان دەهێنرێن...</div>
+            <div class="loading">Please wait, loading information...</div>
         </div>
     </div>
 
     <audio id="beepSound" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg"></audio>
-    <div id="toast" class="toast">بە سەرکەوتوویی کۆپی کرا!</div>
+    <div id="toast" class="toast">Copied successfully!</div>
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
@@ -379,18 +378,18 @@
         let globalTargetLink = ''; 
         let fetchedData = null;
         let clearTimer = null; 
-        const whatsappNumber = '9647517393932'; // ژمارەی نوێی واتسئاپ
+        const whatsappNumber = '9647517393932';
 
         if (accountNumber) {
             document.getElementById('accSmallInput').value = accountNumber;
-            const whatsappMsg = encodeURIComponent(`سڵاو، من ئەکاونتی ژمارە (${accountNumber})ـم هەیە لە AYAD PHONE و پێویستم بە هاوکارییە.`);
+            const whatsappMsg = encodeURIComponent(`Hello, I have account number (${accountNumber}) at AYAD & AIMAN and I need assistance.`);
             document.getElementById('topWhatsappBtn').href = `https://wa.me/${whatsappNumber}?text=${whatsappMsg}`;
         } else {
             document.getElementById('topWhatsappBtn').href = `https://wa.me/${whatsappNumber}`;
         }
 
         if (!accountNumber) {
-            document.getElementById('content').innerHTML = '<div class="error-msg">تکایە ژمارەی ئەکاونت لە لینکەکەدا دیاری بکە (نموونە: ?account=1)</div>';
+            document.getElementById('content').innerHTML = '<div class="error-msg">Please specify the account number in the URL (e.g., ?account=1)</div>';
         } else {
             fetch(`${scriptURL}?account=${accountNumber}`)
                 .then(response => response.json())
@@ -402,30 +401,30 @@
                         document.getElementById('content').innerHTML = `
                             <div id="secretContent">
                                 <div class="field-group">
-                                    <label class="field-label">ئیمەیل (Email)</label>
+                                    <label class="field-label">Email</label>
                                     <div class="input-with-copy">
                                         <input type="text" id="emailInput" class="field-input" value="${fetchedData.email || ''}" readonly>
-                                        <button class="copy-btn" onclick="copyText('emailInput')">کۆپی</button>
+                                        <button class="copy-btn" onclick="copyText('emailInput')">Copy</button>
                                     </div>
                                 </div>
 
                                 <div class="field-group">
-                                    <label class="field-label">پاسوۆرد (Password)</label>
+                                    <label class="field-label">Password</label>
                                     <div class="input-with-copy">
                                         <input type="text" id="passInput" class="field-input" value="${fetchedData.password || ''}" readonly>
-                                        <button class="copy-btn" onclick="copyText('passInput')">کۆپی</button>
+                                        <button class="copy-btn" onclick="copyText('passInput')">Copy</button>
                                     </div>
                                 </div>
 
                                 <div class="field-group">
-                                    <label class="field-label">ڕۆژی لەدایکبوون (Birthday)</label>
+                                    <label class="field-label">Birthday</label>
                                     <div class="simple-input-box">
                                         <input type="text" class="simple-input" value="${fetchedData.birthday || ''}" readonly>
                                     </div>
                                 </div>
 
                                 <div class="field-group">
-                                    <label class="field-label">ژمارەی تەلەفۆن (Phone)</label>
+                                    <label class="field-label">Phone</label>
                                     <div class="simple-input-box">
                                         <input type="text" class="simple-input" value="${fetchedData.phone || ''}" readonly>
                                     </div>
@@ -433,13 +432,13 @@
 
                                 <div class="action-fetch-box">
                                     <div class="code-header-row">
-                                        <label class="field-label" style="margin-bottom:0;">کۆدی دڵنیایی</label>
+                                        <label class="field-label" style="margin-bottom:0;">Verification Code</label>
                                     </div>
                                     <div class="result-display-box">
                                         <div id="fetchedResultText" class="result-text">------</div>
                                     </div>
                                     <button class="refresh-btn" onclick="manualRefresh()">
-                                        <span>🔄</span> <span>نوێکردنەوەی کۆد</span>
+                                        <span>🔄</span> <span>Refresh Code</span>
                                     </button>
                                 </div>
                             </div>
@@ -452,7 +451,7 @@
                     }
                 })
                 .catch(err => {
-                    document.getElementById('content').innerHTML = '<div class="error-msg">هەڵەیەک ڕوویدا لە پەیوەندی کردن بە سیستمەوە.</div>';
+                    document.getElementById('content').innerHTML = '<div class="error-msg">An error occurred while connecting to the system.</div>';
                     console.error(err);
                 });
         }
@@ -464,7 +463,7 @@
 
         function fetchTargetLink(linkUrl) {
             const resultBox = document.getElementById('fetchedResultText');
-            resultBox.innerText = 'چاوەڕوان بە...';
+            resultBox.innerText = 'Please wait...';
             const uniqueUrl = linkUrl + (linkUrl.includes('?') ? '&' : '?') + '_t=' + new Date().getTime();
 
             if (clearTimer) {
