@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BARBIE - Account Info</title>
-    <!-- وەرگرتنی فۆنتی شێوازی دەستنووسی باربی (Pacifico) -->
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <title>DU BRA - Account Info</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -15,7 +14,7 @@
         }
         body {
             background: #0f172a;
-            background: linear-gradient(135deg, #0f172a 0%, #2a0825 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -50,17 +49,18 @@
             gap: 8px;
             background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
             color: #ffffff;
-            padding: 6px 14px;
+            padding: 8px 16px;
             border-radius: 20px;
             text-decoration: none;
             font-size: 13px;
             font-weight: 700;
             margin-bottom: 15px;
             box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-            transition: transform 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
         .top-whatsapp-badge:hover {
             transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.5);
         }
         .top-whatsapp-img {
             width: 20px;
@@ -69,25 +69,28 @@
             border-radius: 50%;
         }
 
-        /* --- لۆگۆی نوێی BARBIE (پەمەیی، ڕەش، LED و جوولاو) --- */
-        .barbie-logo {
-            padding: 10px 25px;
+        /* --- لۆگۆی نوێی DU BRA (ڕەش، LED شین و جوولاو) --- */
+        .z-logo {
+            padding: 12px 24px;
             background: #090d16; /* پشتخانی ڕەشی شیک */
-            color: #ff1493; /* ڕەنگی پەمەیی باربی */
-            font-family: 'Pacifico', cursive; /* فۆنتی هاوشێوەی باربی */
-            font-size: 32px;
+            color: #3b82f6;
+            font-size: 24px;
+            font-weight: 800;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             border-radius: 20px;
             margin-bottom: 12px;
-            border: 2px solid #ff1493;
-            display: inline-block;
+            border: 2px solid #3b82f6;
+            letter-spacing: 1px;
             
-            /* کاریگەری گڵۆپی LEDی پەمەیی */
-            box-shadow: 0 0 15px rgba(255, 20, 147, 0.6),
-                        inset 0 0 10px rgba(255, 20, 147, 0.4);
-            text-shadow: 0 0 10px rgba(255, 20, 147, 0.8);
+            /* کاریگەری گڵۆپی LED و درەوشانەوە */
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.6),
+                        inset 0 0 10px rgba(59, 130, 246, 0.4);
+            text-shadow: 0 0 8px rgba(59, 130, 246, 0.8);
 
-            /* ئانیمەیشنی جووڵان و لەرزین/درەوشانەوە */
-            animation: floatLogo 3s ease-in-out infinite, ledGlowPink 2s alternate infinite;
+            /* ئانیمەیشنی جووڵان و درەوشانەوە */
+            animation: floatLogo 3s ease-in-out infinite, ledGlow 2s alternate infinite;
         }
 
         /* هەڵبەزین و دابەزینی نەرم (Floating) */
@@ -100,15 +103,15 @@
             }
         }
 
-        /* گۆڕانی ڕووناکی LEDی پەمەیی (Barbie Glow Pulse) */
-        @keyframes ledGlowPink {
+        /* گۆڕانی ڕووناکی LED (Glow Pulse) */
+        @keyframes ledGlow {
             0% {
-                box-shadow: 0 0 12px rgba(255, 20, 147, 0.5), inset 0 0 8px rgba(255, 20, 147, 0.3);
-                border-color: #ff1493;
+                box-shadow: 0 0 12px rgba(59, 130, 246, 0.5), inset 0 0 8px rgba(59, 130, 246, 0.3);
+                border-color: #2563eb;
             }
             100% {
-                box-shadow: 0 0 25px rgba(255, 105, 180, 0.9), inset 0 0 15px rgba(255, 105, 180, 0.6);
-                border-color: #ff69b4;
+                box-shadow: 0 0 25px rgba(59, 130, 246, 0.9), inset 0 0 15px rgba(59, 130, 246, 0.6);
+                border-color: #60a5fa;
             }
         }
         /* ---------------------------------- */
@@ -121,12 +124,12 @@
             margin-bottom: 12px;
         }
         .company-title span {
-            color: #ff69b4;
+            color: #3b82f6;
         }
 
         .account-badge {
             background: rgba(15, 23, 42, 0.8);
-            border: 1px solid rgba(255, 105, 180, 0.3);
+            border: 1px solid rgba(59, 130, 246, 0.3);
             padding: 6px 14px;
             border-radius: 20px;
             display: inline-flex;
@@ -142,7 +145,7 @@
         .account-badge input {
             background: transparent;
             border: none;
-            color: #ff69b4;
+            color: #60a5fa;
             font-size: 14px;
             font-weight: 700;
             width: 70px;
@@ -199,7 +202,7 @@
             margin-bottom: 20px;
         }
         .warning-text span {
-            color: #ff69b4;
+            color: #60a5fa;
             font-weight: 700;
         }
         .agree-btn {
@@ -246,8 +249,8 @@
             transition: all 0.3s ease;
         }
         .input-with-copy:focus-within {
-            border-color: #ff1493;
-            box-shadow: 0 0 0 3px rgba(255, 20, 147, 0.2);
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
         }
         .field-input {
             flex: 1;
@@ -274,7 +277,7 @@
             min-height: 45px;
         }
         .copy-btn:hover {
-            background: #ff1493;
+            background: #3b82f6;
             color: #ffffff;
         }
 
@@ -309,7 +312,7 @@
             margin-bottom: 6px;
         }
         .refresh-btn {
-            background: #ff1493;
+            background: #3b82f6;
             border: none;
             color: #ffffff;
             padding: 8px 16px;
@@ -326,11 +329,11 @@
             margin-top: 12px;
         }
         .refresh-btn:hover {
-            background: #d1006f;
+            background: #2563eb;
         }
         .result-display-box {
             background: rgba(15, 23, 42, 0.8);
-            border: 2px solid #ff1493;
+            border: 2px solid #3b82f6;
             border-radius: 12px;
             padding: 12px;
             text-align: center;
@@ -339,7 +342,7 @@
         .result-text {
             font-size: 28px;
             font-weight: 800;
-            color: #ff69b4;
+            color: #60a5fa;
             letter-spacing: 3px;
         }
 
@@ -383,9 +386,9 @@
                 <span>WhatsApp</span>
             </a>
 
-            <!-- لۆگۆی نوێی BARBIE -->
-            <div class="barbie-logo">Barbie</div>
-            <div class="company-title"><span>BARBIE STORE</span></div>
+            <!-- لۆگۆی نوێی DU BRA -->
+            <div class="z-logo">DU BRA</div>
+            <div class="company-title"><span>DU BRA STORE</span></div>
             
             <div class="account-badge">
                 <span>Account:</span>
@@ -403,7 +406,7 @@
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        const accountNumber = urlParams.get('account');
+        const accountNumber = urlParams.get('account') || '';
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwQTQ1ISmZI6mX9QCqIbZiXO4-uc0bthCrO9Nmu1FO0xX8L_6Eoap9SEm3P9ZEwZNPW/exec';
 
         let globalTargetLink = ''; 
@@ -412,12 +415,14 @@
         
         const whatsappNumber = '9647517393932';
 
+        // ڕێکخستنی نامەی ئۆتۆماتیکی بۆ واتسئەپ
         if (accountNumber) {
             document.getElementById('accSmallInput').value = accountNumber;
-            const whatsappMsg = encodeURIComponent(`Hello, I have account number (${accountNumber}) at BARBIE STORE and I need assistance.`);
+            const whatsappMsg = encodeURIComponent(`سڵاو، پێویستم بە هاوکارییە بۆ ئەکاونتی ژمارە: (${accountNumber})`);
             document.getElementById('topWhatsappBtn').href = `https://wa.me/${whatsappNumber}?text=${whatsappMsg}`;
         } else {
-            document.getElementById('topWhatsappBtn').href = `https://wa.me/${whatsappNumber}`;
+            const defaultMsg = encodeURIComponent('سڵاو، پێویستم بە هاوکارییە.');
+            document.getElementById('topWhatsappBtn').href = `https://wa.me/${whatsappNumber}?text=${defaultMsg}`;
         }
 
         if (!accountNumber) {
