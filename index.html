@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AYAD & AIMAN - Account Info</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <title>BARBIE - Account Info</title>
+    <!-- وەرگرتنی فۆنتی شێوازی دەستنووسی باربی (Pacifico) -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -13,8 +14,8 @@
             font-family: 'Tajawal', sans-serif;
         }
         body {
-            background: #090d16;
-            background: radial-gradient(circle at center, #1e1b4b 0%, #090d16 100%);
+            background: #0f172a;
+            background: linear-gradient(135deg, #0f172a 0%, #2a0825 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -22,14 +23,14 @@
             padding: 20px;
         }
         .container {
-            background: rgba(15, 23, 42, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             width: 100%;
             max-width: 420px;
-            border-radius: 28px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             overflow: hidden;
             padding: 30px 25px;
             text-align: center;
@@ -40,144 +41,98 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
-        /* --- واتسئەپی سەرەوە --- */
         .top-whatsapp-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(37, 211, 102, 0.1);
-            border: 1px solid rgba(37, 211, 102, 0.4);
-            color: #25d366;
-            padding: 6px 16px;
-            border-radius: 30px;
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            color: #ffffff;
+            padding: 6px 14px;
+            border-radius: 20px;
             text-decoration: none;
             font-size: 13px;
             font-weight: 700;
-            margin-bottom: 20px;
-            box-shadow: 0 0 12px rgba(37, 211, 102, 0.15);
-            transition: all 0.3s ease;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            transition: transform 0.2s;
         }
         .top-whatsapp-badge:hover {
-            background: #25d366;
-            color: #ffffff;
-            box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
             transform: translateY(-2px);
         }
-        .top-whatsapp-badge:hover .top-whatsapp-img {
-            filter: brightness(0) invert(1);
-        }
         .top-whatsapp-img {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             object-fit: contain;
-            transition: filter 0.3s;
-        }
-
-        /* --- لۆگۆی نوێی ڕەشی LED و سەرنجڕاکێش --- */
-        .logo-wrapper {
-            position: relative;
-            margin-bottom: 15px;
-        }
-
-        .z-logo {
-            width: 85px;
-            height: 85px;
-            background: #030712; /* ڕەنگی ڕەشی کاتی/قووڵ */
-            color: #60a5fa;
-            font-family: 'Orbitron', sans-serif; /* فۆنتی زۆر مۆدێرن بۆ لۆگۆ */
-            font-size: 22px;
-            font-weight: 900;
-            letter-spacing: 1px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%; /* شێوەی بازنەیی مۆدێرن */
-            border: 2px solid #3b82f6;
-            position: relative;
-            z-index: 2;
-            
-            /* گڵۆپی LED و برەق بوون */
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5),
-                        inset 0 0 15px rgba(59, 130, 246, 0.4);
-            text-shadow: 0 0 10px rgba(96, 165, 250, 0.8);
-
-            /* ئانیمەیشنی جووڵان و گەشانەوە */
-            animation: floatLogo 3.5s ease-in-out infinite, ledPulse 2s infinite alternate;
-        }
-
-        /* دروستکردنی ئەڵقەی ڕووناکی زیادە لە پشتی لۆگۆکە */
-        .logo-wrapper::before {
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #3b82f6, transparent, #8b5cf6);
-            z-index: 1;
-            opacity: 0.6;
-            filter: blur(10px);
-            animation: pulseGlow 3.5s ease-in-out infinite;
         }
 
-        /* ئانیمەیشنی سەرکەوتن و خواربوونەوەی نەرم */
+        /* --- لۆگۆی نوێی BARBIE (پەمەیی، ڕەش، LED و جوولاو) --- */
+        .barbie-logo {
+            padding: 10px 25px;
+            background: #090d16; /* پشتخانی ڕەشی شیک */
+            color: #ff1493; /* ڕەنگی پەمەیی باربی */
+            font-family: 'Pacifico', cursive; /* فۆنتی هاوشێوەی باربی */
+            font-size: 32px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            border: 2px solid #ff1493;
+            display: inline-block;
+            
+            /* کاریگەری گڵۆپی LEDی پەمەیی */
+            box-shadow: 0 0 15px rgba(255, 20, 147, 0.6),
+                        inset 0 0 10px rgba(255, 20, 147, 0.4);
+            text-shadow: 0 0 10px rgba(255, 20, 147, 0.8);
+
+            /* ئانیمەیشنی جووڵان و لەرزین/درەوشانەوە */
+            animation: floatLogo 3s ease-in-out infinite, ledGlowPink 2s alternate infinite;
+        }
+
+        /* هەڵبەزین و دابەزینی نەرم (Floating) */
         @keyframes floatLogo {
             0%, 100% {
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-9px);
+                transform: translateY(-8px);
             }
         }
 
-        @keyframes pulseGlow {
-            0%, 100% {
-                transform: translateY(0) scale(0.95);
-                opacity: 0.4;
-            }
-            50% {
-                transform: translateY(-9px) scale(1.05);
-                opacity: 0.8;
-            }
-        }
-
-        /* گۆڕانی ڕووناکی و درەوشانەوەی LED */
-        @keyframes ledPulse {
+        /* گۆڕانی ڕووناکی LEDی پەمەیی (Barbie Glow Pulse) */
+        @keyframes ledGlowPink {
             0% {
-                border-color: #2563eb;
-                box-shadow: 0 0 15px rgba(59, 130, 246, 0.4), inset 0 0 10px rgba(59, 130, 246, 0.3);
+                box-shadow: 0 0 12px rgba(255, 20, 147, 0.5), inset 0 0 8px rgba(255, 20, 147, 0.3);
+                border-color: #ff1493;
             }
             100% {
-                border-color: #60a5fa;
-                box-shadow: 0 0 30px rgba(96, 165, 250, 0.8), inset 0 0 20px rgba(96, 165, 250, 0.5);
+                box-shadow: 0 0 25px rgba(255, 105, 180, 0.9), inset 0 0 15px rgba(255, 105, 180, 0.6);
+                border-color: #ff69b4;
             }
         }
         /* ---------------------------------- */
 
         .company-title {
-            font-size: 18px;
-            color: #ffffff;
-            font-weight: 800;
+            font-size: 16px;
+            color: #f8fafc;
+            font-weight: 700;
             letter-spacing: 1px;
             margin-bottom: 12px;
-            text-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
         }
         .company-title span {
-            color: #60a5fa;
+            color: #ff69b4;
         }
 
         .account-badge {
-            background: rgba(15, 23, 42, 0.9);
-            border: 1px solid rgba(59, 130, 246, 0.25);
-            padding: 6px 16px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255, 105, 180, 0.3);
+            padding: 6px 14px;
             border-radius: 20px;
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            margin-bottom: 5px;
         }
         .account-badge span {
             font-size: 12px;
@@ -187,7 +142,7 @@
         .account-badge input {
             background: transparent;
             border: none;
-            color: #60a5fa;
+            color: #ff69b4;
             font-size: 14px;
             font-weight: 700;
             width: 70px;
@@ -211,8 +166,8 @@
             width: 100%;
             height: 100%;
             background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             z-index: 999;
             display: none;
             justify-content: center;
@@ -220,10 +175,10 @@
             padding: 20px;
         }
         .warning-box {
-            background: rgba(30, 41, 59, 0.95);
+            background: rgba(30, 41, 59, 0.9);
             border: 1px solid rgba(239, 68, 68, 0.4);
             border-radius: 20px;
-            padding: 22px;
+            padding: 20px;
             width: 100%;
             text-align: left;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
@@ -244,7 +199,7 @@
             margin-bottom: 20px;
         }
         .warning-text span {
-            color: #60a5fa;
+            color: #ff69b4;
             font-weight: 700;
         }
         .agree-btn {
@@ -291,8 +246,8 @@
             transition: all 0.3s ease;
         }
         .input-with-copy:focus-within {
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+            border-color: #ff1493;
+            box-shadow: 0 0 0 3px rgba(255, 20, 147, 0.2);
         }
         .field-input {
             flex: 1;
@@ -319,7 +274,7 @@
             min-height: 45px;
         }
         .copy-btn:hover {
-            background: #3b82f6;
+            background: #ff1493;
             color: #ffffff;
         }
 
@@ -354,11 +309,11 @@
             margin-bottom: 6px;
         }
         .refresh-btn {
-            background: #3b82f6;
+            background: #ff1493;
             border: none;
             color: #ffffff;
-            padding: 10px 16px;
-            border-radius: 12px;
+            padding: 8px 16px;
+            border-radius: 10px;
             font-size: 13px;
             font-weight: 700;
             cursor: pointer;
@@ -369,14 +324,13 @@
             transition: all 0.2s;
             width: 100%;
             margin-top: 12px;
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
         }
         .refresh-btn:hover {
-            background: #2563eb;
+            background: #d1006f;
         }
         .result-display-box {
             background: rgba(15, 23, 42, 0.8);
-            border: 2px solid #3b82f6;
+            border: 2px solid #ff1493;
             border-radius: 12px;
             padding: 12px;
             text-align: center;
@@ -385,7 +339,7 @@
         .result-text {
             font-size: 28px;
             font-weight: 800;
-            color: #60a5fa;
+            color: #ff69b4;
             letter-spacing: 3px;
         }
 
@@ -425,16 +379,13 @@
 
         <div class="logo-container" id="logoContainer">
             <a href="" id="topWhatsappBtn" target="_blank" class="top-whatsapp-badge">
-                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%2325d366' d='M16 0C7.163 0 0 7.163 0 16c0 2.825.735 5.483 2.025 7.788L.5 29.5l5.913-1.55C8.613 29.265 11.238 30 14 30c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29c-2.45 0-4.75-.688-6.713-1.888l-.488-.288-3.662.962.975-3.563-.313-.513A13.047 13.047 0 013 16C3 8.825 8.825 3 16 3s13 5.825 13 13-5.825 13-13 13zm7.475-9.438c-.413-.2-2.438-1.2-2.813-1.338-.375-.138-.65-.2-.925.2-.275.413-1.063 1.338-1.3 1.613-.238.275-.475.313-.888.113-.413-.2-1.738-.638-3.313-2.038-1.225-1.088-2.05-2.425-2.288-2.838-.238-.413-.025-.638.175-.838.175-.175.413-.45.625-.675.2-.225.275-.375.413-.625.138-.25.075-.475-.038-.675-.113-.2-.925-2.225-1.275-3.05-.338-.8-.675-.7-.925-.713h-.788c-.275 0-.725.1-1.1.5-.375.375-1.438 1.4-1.438 3.413 0 2.013 1.475 3.95 1.675 4.225.2.275 2.9 4.425 7.025 6.2 3.975 1.713 4.7 1.375 5.55 1.288.85-.088 2.438-1 2.775-1.963.338-.963.338-1.788.238-1.963-.1-.175-.375-.275-.788-.475z'/></svg>" class="top-whatsapp-img" alt="WhatsApp">
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23ffffff' d='M16 0C7.163 0 0 7.163 0 16c0 2.825.735 5.483 2.025 7.788L.5 29.5l5.913-1.55C8.613 29.265 11.238 30 14 30c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29c-2.45 0-4.75-.688-6.713-1.888l-.488-.288-3.662.962.975-3.563-.313-.513A13.047 13.047 0 013 16C3 8.825 8.825 3 16 3s13 5.825 13 13-5.825 13-13 13zm7.475-9.438c-.413-.2-2.438-1.2-2.813-1.338-.375-.138-.65-.2-.925.2-.275.413-1.063 1.338-1.3 1.613-.238.275-.475.313-.888.113-.413-.2-1.738-.638-3.313-2.038-1.225-1.088-2.05-2.425-2.288-2.838-.238-.413-.025-.638.175-.838.175-.175.413-.45.625-.675.2-.225.275-.375.413-.625.138-.25.075-.475-.038-.675-.113-.2-.925-2.225-1.275-3.05-.338-.8-.675-.7-.925-.713h-.788c-.275 0-.725.1-1.1.5-.375.375-1.438 1.4-1.438 3.413 0 2.013 1.475 3.95 1.675 4.225.2.275 2.9 4.425 7.025 6.2 3.975 1.713 4.7 1.375 5.55 1.288.85-.088 2.438-1 2.775-1.963.338-.963.338-1.788.238-1.963-.1-.175-.375-.275-.788-.475z'/></svg>" class="top-whatsapp-img" alt="WhatsApp">
                 <span>WhatsApp</span>
             </a>
 
-            <!-- بەشی لۆگۆی نوێ -->
-            <div class="logo-wrapper">
-                <div class="z-logo">A&A</div>
-            </div>
-
-            <div class="company-title"><span>AYAD & AIMAN</span></div>
+            <!-- لۆگۆی نوێی BARBIE -->
+            <div class="barbie-logo">Barbie</div>
+            <div class="company-title"><span>BARBIE STORE</span></div>
             
             <div class="account-badge">
                 <span>Account:</span>
@@ -463,7 +414,7 @@
 
         if (accountNumber) {
             document.getElementById('accSmallInput').value = accountNumber;
-            const whatsappMsg = encodeURIComponent(`Hello, I have account number (${accountNumber}) at AYAD & AIMAN and I need assistance.`);
+            const whatsappMsg = encodeURIComponent(`Hello, I have account number (${accountNumber}) at BARBIE STORE and I need assistance.`);
             document.getElementById('topWhatsappBtn').href = `https://wa.me/${whatsappNumber}?text=${whatsappMsg}`;
         } else {
             document.getElementById('topWhatsappBtn').href = `https://wa.me/${whatsappNumber}`;
