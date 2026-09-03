@@ -13,7 +13,6 @@
             font-family: 'Noto Kufi Arabic', 'Poppins', sans-serif;
         }
         
-        /* پاشبنەمای شینی زۆر تۆخ (Dark Deep Navy) */
         body {
             background: #030712;
             background: radial-gradient(circle at top, #0f172a 0%, #030712 100%);
@@ -27,18 +26,18 @@
             background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(30, 58, 138, 0.4);
+            border: 2px solid #2563eb;
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
             width: 100%;
             max-width: 440px;
             border-radius: 28px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9), 0 0 25px rgba(29, 78, 216, 0.25);
             overflow: hidden;
             padding: 30px 25px;
             text-align: center;
             position: relative;
         }
 
-        /* دوگمەی دیار و روونی واتساپ */
+        /* دوگمەی واتساپ بە دەوری LED */
         .whatsapp-banner {
             display: flex;
             align-items: center;
@@ -52,13 +51,13 @@
             font-size: 14px;
             font-weight: 700;
             margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+            border: 1px solid #34d399;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         .whatsapp-banner:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.5);
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.8);
         }
         .whatsapp-banner svg {
             width: 22px;
@@ -73,7 +72,7 @@
             margin-bottom: 25px;
         }
 
-        /* دیزاینی لۆگۆی LED و جوڵاو (Glowing LED Logo) */
+        /* لۆگۆی LED جوڵاو */
         .z-logo {
             width: 85px;
             height: 85px;
@@ -93,7 +92,6 @@
             animation: ledPulse 2s infinite alternate;
         }
 
-        /* ئەنیمەیشنی جوڵەی رووناکی LED */
         @keyframes ledPulse {
             0% {
                 box-shadow: 0 0 10px #2563eb, inset 0 0 10px #2563eb;
@@ -123,22 +121,22 @@
         }
         .company-title span {
             color: #3b82f6;
-            text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.8);
         }
 
         .account-badge {
             background: rgba(3, 7, 18, 0.9);
-            border: 1px solid rgba(37, 99, 235, 0.5);
+            border: 1px solid #3b82f6;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
             padding: 6px 16px;
             border-radius: 20px;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
         }
         .account-badge span {
             font-size: 13px;
-            color: #64748b;
+            color: #94a3b8;
             font-weight: 600;
         }
         .account-badge input {
@@ -155,7 +153,7 @@
 
         .loading, .error-msg {
             padding: 20px;
-            color: #64748b;
+            color: #94a3b8;
             font-size: 14px;
         }
         .error-msg {
@@ -173,18 +171,21 @@
             margin-bottom: 6px;
             display: block;
         }
+
+        /* هەموو باکسەکان ببوون بە LED */
         .input-with-copy {
             display: flex;
             align-items: center;
             background: rgba(3, 7, 18, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid #1e40af;
+            box-shadow: 0 0 8px rgba(30, 64, 175, 0.2);
             border-radius: 14px;
             overflow: hidden;
             transition: all 0.3s ease;
         }
         .input-with-copy:focus-within {
-            border-color: #2563eb;
-            box-shadow: 0 0 12px rgba(37, 99, 235, 0.3);
+            border-color: #3b82f6;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
         }
         .field-input {
             flex: 1;
@@ -198,11 +199,11 @@
             font-family: 'Poppins', 'Noto Kufi Arabic', sans-serif;
         }
         .copy-btn {
-            background: rgba(30, 41, 59, 0.6);
+            background: rgba(30, 41, 59, 0.8);
             border: none;
             padding: 0 16px;
             cursor: pointer;
-            color: #94a3b8;
+            color: #60a5fa;
             font-size: 12px;
             font-weight: 700;
             transition: background 0.2s, color 0.2s;
@@ -214,41 +215,78 @@
         .copy-btn:hover {
             background: #2563eb;
             color: #ffffff;
+            box-shadow: 0 0 10px #2563eb;
         }
         
+        /* باکسی تایبەت بۆ کۆدی دڵنیایی لەگەڵ LED ڕازاوە */
         .action-fetch-box {
             margin-top: 22px;
-            background: rgba(3, 7, 18, 0.9);
-            border: 1px solid rgba(37, 99, 235, 0.4);
-            border-radius: 18px;
-            padding: 18px;
+            background: rgba(3, 7, 18, 0.95);
+            border: 2px solid #3b82f6;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+            border-radius: 20px;
+            padding: 20px;
             text-align: right;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
         .action-fetch-box .field-label {
             color: #60a5fa;
             font-weight: 700;
             margin-bottom: 10px;
+            text-shadow: 0 0 5px rgba(96, 165, 250, 0.5);
         }
         .fetch-btn {
             display: block;
             width: 100%;
             background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
             color: #ffffff;
-            border: none;
+            border: 1px solid #60a5fa;
             cursor: pointer;
             padding: 13px;
             border-radius: 12px;
             font-size: 14px;
             font-weight: 700;
-            box-shadow: 0 4px 15px rgba(29, 78, 216, 0.4);
+            box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);
             transition: all 0.2s ease;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
         .fetch-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.8);
             background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        }
+
+        /* باکسی درەوشاوەی تایبەت بە کۆدی دڵنیایی */
+        .code-display-box {
+            background: #020617;
+            border: 2px solid #38bdf8;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4), inset 0 0 10px rgba(56, 189, 248, 0.2);
+            border-radius: 14px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .code-input-field {
+            background: transparent;
+            border: none;
+            color: #38bdf8;
+            font-size: 22px;
+            font-weight: 800;
+            text-align: center;
+            width: 100%;
+            outline: none;
+            letter-spacing: 4px;
+            font-family: 'Poppins', sans-serif;
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
+        }
+        .timer-text {
+            font-size: 11px;
+            color: #ef4444;
+            text-align: center;
+            margin-top: 6px;
+            font-weight: 700;
+            min-height: 16px;
         }
 
         .toast {
@@ -262,7 +300,7 @@
             border-radius: 30px;
             font-size: 13px;
             font-weight: 700;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             z-index: 1000;
         }
@@ -282,7 +320,7 @@
             پەیوەندی لە ڕێگەی واتساپەوە
         </a>
 
-        <!-- لۆگۆی LED و ژمارەی ئەکاونت -->
+        <!-- لۆگۆ و ژمارەی ئەکاونت -->
         <div class="logo-container">
             <div class="z-logo">Z</div>
             <div class="company-title">COMPANY <span>DU BRA</span></div>
@@ -304,13 +342,13 @@
         const urlParams = new URLSearchParams(window.location.search);
         const accountNumber = urlParams.get('account');
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwQTQ1ISmZI6mX9QCqIbZiXO4-uc0bthCrO9Nmu1FO0xX8L_6Eoap9SEm3P9ZEwZNPW/exec';
+        let countdownTimer = null;
 
         if (!accountNumber) {
             document.getElementById('content').innerHTML = '<div class="error-msg">تکایە ژمارەی ئەکاونت لە لینکەکەدا دیاری بکە (نموونە: ?account=1)</div>';
         } else {
             document.getElementById('accSmallInput').value = accountNumber;
 
-            // لینکی ڕاستەوخۆی واتساپ
             const phone = "9647517393932";
             const message = encodeURIComponent(`سڵاو، من ئەکاونتی ژمارە ${accountNumber}م هەیە لە کۆمپانیای دوو برا.`);
             document.getElementById('whatsappLink').href = `https://wa.me/${phone}?text=${message}`;
@@ -357,15 +395,16 @@
                                 </div>
                             </div>
 
-                            <!-- کۆدی دڵنیایی -->
+                            <!-- باکسی تایبەت بە کۆدی دڵنیایی -->
                             <div class="action-fetch-box">
                                 <label class="field-label">کۆدی دڵنیایی</label>
                                 <button class="fetch-btn" onclick="fetchTargetLink('${d.link || ''}')">وەرگرتنی کۆدی دڵنیایی</button>
                                 
-                                <div class="input-with-copy">
-                                    <input type="text" id="fetchedResultInput" class="field-input" value="" placeholder="کۆدەکە لێرە دەرکەوێت..." readonly style="text-align: center; font-weight: 700; color: #60a5fa; letter-spacing: 2px;">
-                                    <button class="copy-btn" onclick="copyText('fetchedResultInput')">کۆپی</button>
+                                <div class="code-display-box">
+                                    <input type="text" id="fetchedResultInput" class="code-input-field" value="" placeholder="------" readonly>
+                                    <button class="copy-btn" style="border-radius: 10px;" onclick="copyText('fetchedResultInput')">کۆپی</button>
                                 </div>
+                                <div id="timerNotice" class="timer-text"></div>
                             </div>
                         `;
                     } else {
@@ -400,24 +439,50 @@
 
         function fetchTargetLink(linkUrl) {
             const resultInput = document.getElementById('fetchedResultInput');
+            const timerNotice = document.getElementById('timerNotice');
+            
+            // سڕینەوەی کاتی پێشوو تا بە هەڵە دووبارە نەبێتەوە
+            clearInterval(countdownTimer);
+            timerNotice.innerText = "";
             playBeepSound();
 
             if (!linkUrl || linkUrl === '#') {
-                resultInput.value = 'هیچ لینکێک بوونی نییە.';
+                resultInput.value = 'لینک نییە';
                 return;
             }
 
-            resultInput.value = 'خەریکی وەرگرتنە...';
+            resultInput.value = '...';
 
             fetch(linkUrl)
                 .then(response => response.text())
                 .then(data => {
                     const numbersOnly = data.replace(/[^0-9]/g, '');
-                    resultInput.value = numbersOnly || 'هیچ ژمارەیەک نەدۆزرایەوە';
-                    playBeepSound();
+                    
+                    if (numbersOnly) {
+                        resultInput.value = numbersOnly;
+                        playBeepSound();
+
+                        // بەگەڕخستنی تایمەری 25 چرکەیی بۆ سڕینەوەی ئۆتۆماتیکی
+                        let timeLeft = 25;
+                        timerNotice.innerText = `کۆدەکە دوای ${timeLeft} چرکەی تر دەسڕێتەوە`;
+
+                        countdownTimer = setInterval(() => {
+                            timeLeft--;
+                            if (timeLeft > 0) {
+                                timerNotice.innerText = `کۆدەکە دوای ${timeLeft} چرکەی تر دەسڕێتەوە`;
+                            } else {
+                                clearInterval(countdownTimer);
+                                resultInput.value = "";
+                                timerNotice.innerText = "کۆدەکە سڕایەوە! کۆتایی هات.";
+                            }
+                        }, 1000);
+
+                    } else {
+                        resultInput.value = 'نەدۆزرایەوە';
+                    }
                 })
                 .catch(error => {
-                    resultInput.value = 'هەڵە لە هێنانی زانیاری';
+                    resultInput.value = 'هەڵە';
                 });
         }
 
