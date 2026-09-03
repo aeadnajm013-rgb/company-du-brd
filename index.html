@@ -151,6 +151,53 @@
             font-family: 'Poppins', sans-serif;
         }
 
+        /* باکسی ئاگاداری ڕووناکیی سوور (Warning LED) */
+        .warning-box {
+            background: rgba(239, 68, 68, 0.1);
+            border: 2px solid #ef4444;
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .warning-title {
+            color: #fca5a5;
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
+        }
+        .warning-text {
+            color: #fecaca;
+            font-size: 13px;
+            line-height: 1.6;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+        .accept-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: #ffffff;
+            border: 1px solid #fca5a5;
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+            transition: all 0.2s ease;
+        }
+        .accept-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(239, 68, 68, 0.8);
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+        }
+
         .loading, .error-msg {
             padding: 20px;
             color: #94a3b8;
@@ -172,7 +219,6 @@
             display: block;
         }
 
-        /* هەموو باکسەکان ببوون بە LED */
         .input-with-copy {
             display: flex;
             align-items: center;
@@ -218,7 +264,6 @@
             box-shadow: 0 0 10px #2563eb;
         }
         
-        /* باکسی تایبەت بۆ کۆدی دڵنیایی لەگەڵ LED ڕازاوە */
         .action-fetch-box {
             margin-top: 22px;
             background: rgba(3, 7, 18, 0.95);
@@ -255,7 +300,6 @@
             background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
         }
 
-        /* باکسی درەوشاوەی تایبەت بە کۆدی دڵنیایی */
         .code-display-box {
             background: #020617;
             border: 2px solid #38bdf8;
@@ -331,7 +375,18 @@
             </div>
         </div>
 
-        <div id="content">
+        <!-- باکسی ئاگاداری کە سەرەتا دەربکەوێت -->
+        <div id="warningBox" class="warning-box">
+            <div class="warning-title">
+                ⚠️ ئاگادارییەکی گرنگ
+            </div>
+            <div class="warning-text">
+                تکایە بەهیچ شێوەیەک ئەم Apple ID لە Settings ی موبایلەکەت داخل مەکە! تەنها لە App Store داخل بکە.
+            </div>
+            <button class="accept-btn" onclick="acceptAgreement()">من ڕازیم</button>
+        </div>
+
+        <div id="content" style="display: none;">
             <div class="loading">چاوەڕوان بە، زانیارییەکان دەهێنرێن...</div>
         </div>
     </div>
@@ -344,14 +399,22 @@
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwQTQ1ISmZI6mX9QCqIbZiXO4-uc0bthCrO9Nmu1FO0xX8L_6Eoap9SEm3P9ZEwZNPW/exec';
         let countdownTimer = null;
 
-        if (!accountNumber) {
-            document.getElementById('content').innerHTML = '<div class="error-msg">تکایە ژمارەی ئەکاونت لە لینکەکەدا دیاری بکە (نموونە: ?account=1)</div>';
-        } else {
+        if (accountNumber) {
             document.getElementById('accSmallInput').value = accountNumber;
-
             const phone = "9647517393932";
             const message = encodeURIComponent(`سڵاو، من ئەکاونتی ژمارە ${accountNumber}م هەیە لە کۆمپانیای دوو برا.`);
             document.getElementById('whatsappLink').href = `https://wa.me/${phone}?text=${message}`;
+        }
+
+        // کرداری داگرتنی دوگمەی "من ڕازیم"
+        function acceptAgreement() {
+            document.getElementById('warningBox').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+
+            if (!accountNumber) {
+                document.getElementById('content').innerHTML = '<div class="error-msg">تکایە ژمارەی ئەکاونت لە لینکەکەدا دیاری بکە (نموونە: ?account=1)</div>';
+                return;
+            }
 
             fetch(`${scriptURL}?account=${accountNumber}`)
                 .then(response => response.json())
@@ -441,7 +504,6 @@
             const resultInput = document.getElementById('fetchedResultInput');
             const timerNotice = document.getElementById('timerNotice');
             
-            // سڕینەوەی کاتی پێشوو تا بە هەڵە دووبارە نەبێتەوە
             clearInterval(countdownTimer);
             timerNotice.innerText = "";
             playBeepSound();
@@ -462,7 +524,6 @@
                         resultInput.value = numbersOnly;
                         playBeepSound();
 
-                        // بەگەڕخستنی تایمەری 25 چرکەیی بۆ سڕینەوەی ئۆتۆماتیکی
                         let timeLeft = 25;
                         timerNotice.innerText = `کۆدەکە دوای ${timeLeft} چرکەی تر دەسڕێتەوە`;
 
