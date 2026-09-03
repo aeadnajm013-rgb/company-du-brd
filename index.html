@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ku" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DU BRA - Account Info</title>
+    <title>COMPANY DU BRA - زانیاری ئەکاونت</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -33,7 +33,6 @@
             overflow: hidden;
             padding: 30px 25px;
             text-align: center;
-            position: relative;
         }
         
         .logo-container {
@@ -42,91 +41,33 @@
             align-items: center;
             margin-bottom: 20px;
         }
-
-        .top-whatsapp-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
-            color: #ffffff;
-            padding: 8px 16px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .top-whatsapp-badge:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.5);
-        }
-        .top-whatsapp-img {
-            width: 20px;
-            height: 20px;
-            object-fit: contain;
-            border-radius: 50%;
-        }
-
-        /* --- لۆگۆی نوێی DU BRA (ڕەش، LED شین و جوولاو) --- */
         .z-logo {
-            padding: 12px 24px;
-            background: #090d16; /* پشتخانی ڕەشی شیک */
-            color: #3b82f6;
-            font-size: 24px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: #ffffff;
+            font-size: 30px;
             font-weight: 800;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 20px;
-            margin-bottom: 12px;
-            border: 2px solid #3b82f6;
-            letter-spacing: 1px;
-            
-            /* کاریگەری گڵۆپی LED و درەوشانەوە */
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.6),
-                        inset 0 0 10px rgba(59, 130, 246, 0.4);
-            text-shadow: 0 0 8px rgba(59, 130, 246, 0.8);
-
-            /* ئانیمەیشنی جووڵان و درەوشانەوە */
-            animation: floatLogo 3s ease-in-out infinite, ledGlow 2s alternate infinite;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.5);
+            margin-bottom: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
-
-        /* هەڵبەزین و دابەزینی نەرم (Floating) */
-        @keyframes floatLogo {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-8px);
-            }
-        }
-
-        /* گۆڕانی ڕووناکی LED (Glow Pulse) */
-        @keyframes ledGlow {
-            0% {
-                box-shadow: 0 0 12px rgba(59, 130, 246, 0.5), inset 0 0 8px rgba(59, 130, 246, 0.3);
-                border-color: #2563eb;
-            }
-            100% {
-                box-shadow: 0 0 25px rgba(59, 130, 246, 0.9), inset 0 0 15px rgba(59, 130, 246, 0.6);
-                border-color: #60a5fa;
-            }
-        }
-        /* ---------------------------------- */
-
         .company-title {
-            font-size: 16px;
+            font-size: 18px;
             color: #f8fafc;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             margin-bottom: 12px;
         }
         .company-title span {
             color: #3b82f6;
         }
 
+        /* خانەی بچووکی ژمارەی ئەکاونت لە ژێر لۆگۆ */
         .account-badge {
             background: rgba(15, 23, 42, 0.8);
             border: 1px solid rgba(59, 130, 246, 0.3);
@@ -161,75 +102,10 @@
         .error-msg {
             color: #f87171;
         }
-
-        #warningModal {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            z-index: 999;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        .warning-box {
-            background: rgba(30, 41, 59, 0.9);
-            border: 1px solid rgba(239, 68, 68, 0.4);
-            border-radius: 20px;
-            padding: 20px;
-            width: 100%;
-            text-align: left;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-        }
-        .warning-title {
-            color: #f87171;
-            font-size: 15px;
-            font-weight: 800;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .warning-text {
-            color: #f1f5f9;
-            font-size: 13px;
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-        .warning-text span {
-            color: #60a5fa;
-            font-weight: 700;
-        }
-        .agree-btn {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            border: none;
-            color: white;
-            padding: 12px;
-            border-radius: 12px;
-            font-size: 14px;
-            font-weight: 700;
-            cursor: pointer;
-            width: 100%;
-            transition: transform 0.2s, opacity 0.2s;
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-        }
-        .agree-btn:hover {
-            opacity: 0.9;
-            transform: translateY(-1px);
-        }
-
-        #secretContent {
-            display: none;
-        }
         
         .field-group {
             margin-bottom: 15px;
-            text-align: left;
+            text-align: right;
         }
         .field-label {
             font-size: 12px;
@@ -238,7 +114,6 @@
             margin-bottom: 6px;
             display: block;
         }
-        
         .input-with-copy {
             display: flex;
             align-items: center;
@@ -273,28 +148,12 @@
             transition: background 0.2s, color 0.2s;
             display: flex;
             align-items: center;
-            border-left: 1px solid rgba(255, 255, 255, 0.05);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
             min-height: 45px;
         }
         .copy-btn:hover {
             background: #3b82f6;
             color: #ffffff;
-        }
-
-        .simple-input-box {
-            background: rgba(15, 23, 42, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        .simple-input {
-            width: 100%;
-            background: transparent;
-            border: none;
-            padding: 12px 14px;
-            font-size: 14px;
-            color: #f1f5f9;
-            outline: none;
         }
         
         .action-fetch-box {
@@ -303,47 +162,26 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
             padding: 15px;
-            text-align: left;
+            text-align: right;
         }
-        .code-header-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 6px;
-        }
-        .refresh-btn {
-            background: #3b82f6;
-            border: none;
-            color: #ffffff;
-            padding: 8px 16px;
-            border-radius: 10px;
-            font-size: 13px;
-            font-weight: 700;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            transition: all 0.2s;
+        .fetch-btn {
+            display: block;
             width: 100%;
-            margin-top: 12px;
-        }
-        .refresh-btn:hover {
-            background: #2563eb;
-        }
-        .result-display-box {
-            background: rgba(15, 23, 42, 0.8);
-            border: 2px solid #3b82f6;
-            border-radius: 12px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
             padding: 12px;
-            text-align: center;
-            margin-top: 5px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 12px;
         }
-        .result-text {
-            font-size: 28px;
-            font-weight: 800;
-            color: #60a5fa;
-            letter-spacing: 3px;
+        .fetch-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
         }
 
         .toast {
@@ -368,169 +206,118 @@
 </head>
 <body>
 
-    <div class="container" id="mainContainer">
-        <!-- Warning Modal -->
-        <div id="warningModal">
-            <div class="warning-box">
-                <div class="warning-title">⚠️ Important Warning</div>
-                <div class="warning-text">
-                    Please do NOT sign in with this <span>Apple ID</span> in iPhone <span>Settings</span>! Use it ONLY in the <span>App Store</span>.
-                </div>
-                <button class="agree-btn" onclick="showSecretData()">I Agree, Show Information</button>
-            </div>
-        </div>
-
-        <div class="logo-container" id="logoContainer">
-            <a href="" id="topWhatsappBtn" target="_blank" class="top-whatsapp-badge">
-                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23ffffff' d='M16 0C7.163 0 0 7.163 0 16c0 2.825.735 5.483 2.025 7.788L.5 29.5l5.913-1.55C8.613 29.265 11.238 30 14 30c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29c-2.45 0-4.75-.688-6.713-1.888l-.488-.288-3.662.962.975-3.563-.313-.513A13.047 13.047 0 013 16C3 8.825 8.825 3 16 3s13 5.825 13 13-5.825 13-13 13zm7.475-9.438c-.413-.2-2.438-1.2-2.813-1.338-.375-.138-.65-.2-.925.2-.275.413-1.063 1.338-1.3 1.613-.238.275-.475.313-.888.113-.413-.2-1.738-.638-3.313-2.038-1.225-1.088-2.05-2.425-2.288-2.838-.238-.413-.025-.638.175-.838.175-.175.413-.45.625-.675.2-.225.275-.375.413-.625.138-.25.075-.475-.038-.675-.113-.2-.925-2.225-1.275-3.05-.338-.8-.675-.7-.925-.713h-.788c-.275 0-.725.1-1.1.5-.375.375-1.438 1.4-1.438 3.413 0 2.013 1.475 3.95 1.675 4.225.2.275 2.9 4.425 7.025 6.2 3.975 1.713 4.7 1.375 5.55 1.288.85-.088 2.438-1 2.775-1.963.338-.963.338-1.788.238-1.963-.1-.175-.375-.275-.788-.475z'/></svg>" class="top-whatsapp-img" alt="WhatsApp">
-                <span>WhatsApp</span>
-            </a>
-
-            <!-- لۆگۆی نوێی DU BRA -->
-            <div class="z-logo">DU BRA</div>
-            <div class="company-title"><span>DU BRA STORE</span></div>
+    <div class="container">
+        <!-- لۆگۆ و ژمارەی ئەکاونت -->
+        <div class="logo-container">
+            <div class="z-logo">Z</div>
+            <div class="company-title">COMPANY <span>DU BRA</span></div>
             
             <div class="account-badge">
-                <span>Account:</span>
+                <span>ئەکاونت:</span>
                 <input type="text" id="accSmallInput" value="" readonly>
             </div>
         </div>
 
         <div id="content">
-            <div class="loading">Please wait, loading information...</div>
+            <div class="loading">چاوەڕوان بە، زانیارییەکان دەهێنرێن...</div>
         </div>
     </div>
 
-    <audio id="beepSound" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg"></audio>
-    <div id="toast" class="toast">Copied successfully!</div>
+    <div id="toast" class="toast">بە سەرکەوتوویی کۆپی کرا!</div>
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        const accountNumber = urlParams.get('account') || '';
+        const accountNumber = urlParams.get('account');
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwQTQ1ISmZI6mX9QCqIbZiXO4-uc0bthCrO9Nmu1FO0xX8L_6Eoap9SEm3P9ZEwZNPW/exec';
 
-        let globalTargetLink = ''; 
-        let fetchedData = null;
-        let clearTimer = null; 
-        
-        const whatsappNumber = '9647517393932';
-
-        // ڕێکخستنی نامەی ئۆتۆماتیکی بۆ واتسئەپ
-        if (accountNumber) {
-            document.getElementById('accSmallInput').value = accountNumber;
-            const whatsappMsg = encodeURIComponent(`سڵاو، پێویستم بە هاوکارییە بۆ ئەکاونتی ژمارە: (${accountNumber})`);
-            document.getElementById('topWhatsappBtn').href = `https://wa.me/${whatsappNumber}?text=${whatsappMsg}`;
-        } else {
-            const defaultMsg = encodeURIComponent('سڵاو، پێویستم بە هاوکارییە.');
-            document.getElementById('topWhatsappBtn').href = `https://wa.me/${whatsappNumber}?text=${defaultMsg}`;
-        }
-
         if (!accountNumber) {
-            document.getElementById('content').innerHTML = '<div class="error-msg">Please specify the account number in the URL (e.g., ?account=1)</div>';
+            document.getElementById('content').innerHTML = '<div class="error-msg">تکایە ژمارەی ئەکاونت لە لینکەکەدا دیاری بکە (نموونە: ?account=1)</div>';
         } else {
+            // دانانی ژمارەی ئەکاونت لە باجە بچووکەکەی سەرەوە ڕاستەوخۆ
+            document.getElementById('accSmallInput').value = accountNumber;
+
             fetch(`${scriptURL}?account=${accountNumber}`)
                 .then(response => response.json())
                 .then(res => {
                     if (res.status === 'success') {
-                        fetchedData = res.data;
-                        globalTargetLink = fetchedData.link; 
-                        
+                        let d = res.data;
                         document.getElementById('content').innerHTML = `
-                            <div id="secretContent">
-                                <div class="field-group">
-                                    <label class="field-label">Email</label>
-                                    <div class="input-with-copy">
-                                        <input type="text" id="emailInput" class="field-input" value="${fetchedData.email || ''}" readonly>
-                                        <button class="copy-btn" onclick="copyText('emailInput')">Copy</button>
-                                    </div>
+                            <!-- ئیمەیل (Email) -->
+                            <div class="field-group">
+                                <label class="field-label">ئیمەیل (Email)</label>
+                                <div class="input-with-copy">
+                                    <input type="text" id="emailInput" class="field-input" value="${d.email || ''}" readonly>
+                                    <button class="copy-btn" onclick="copyText('emailInput')">کۆپی</button>
                                 </div>
+                            </div>
 
-                                <div class="field-group">
-                                    <label class="field-label">Password</label>
-                                    <div class="input-with-copy">
-                                        <input type="text" id="passInput" class="field-input" value="${fetchedData.password || ''}" readonly>
-                                        <button class="copy-btn" onclick="copyText('passInput')">Copy</button>
-                                    </div>
+                            <!-- پاسوۆرد (Password) -->
+                            <div class="field-group">
+                                <label class="field-label">پاسوۆرد (Password)</label>
+                                <div class="input-with-copy">
+                                    <input type="text" id="passInput" class="field-input" value="${d.password || ''}" readonly>
+                                    <button class="copy-btn" onclick="copyText('passInput')">کۆپی</button>
                                 </div>
+                            </div>
 
-                                <div class="field-group">
-                                    <label class="field-label">Birthday</label>
-                                    <div class="simple-input-box">
-                                        <input type="text" class="simple-input" value="${fetchedData.birthday || ''}" readonly>
-                                    </div>
+                            <!-- ڕۆژی لەدایکبوون (Birthday) -->
+                            <div class="field-group">
+                                <label class="field-label">ڕۆژی لەدایکبوون (Birthday)</label>
+                                <div class="input-with-copy">
+                                    <input type="text" id="bdayInput" class="field-input" value="${d.birthday || ''}" readonly>
+                                    <button class="copy-btn" onclick="copyText('bdayInput')">کۆپی</button>
                                 </div>
+                            </div>
 
-                                <div class="field-group">
-                                    <label class="field-label">Phone</label>
-                                    <div class="simple-input-box">
-                                        <input type="text" class="simple-input" value="${fetchedData.phone || ''}" readonly>
-                                    </div>
+                            <!-- ژمارەی تەلەفۆن (Phone) -->
+                            <div class="field-group">
+                                <label class="field-label">ژمارەی تەلەفۆن (Phone)</label>
+                                <div class="input-with-copy">
+                                    <input type="text" id="phoneInput" class="field-input" value="${d.phone || ''}" readonly>
+                                    <button class="copy-btn" onclick="copyText('phoneInput')">کۆپی</button>
                                 </div>
+                            </div>
 
-                                <div class="action-fetch-box">
-                                    <div class="code-header-row">
-                                        <label class="field-label" style="margin-bottom:0;">Verification Code</label>
-                                    </div>
-                                    <div class="result-display-box">
-                                        <div id="fetchedResultText" class="result-text">------</div>
-                                    </div>
-                                    <button class="refresh-btn" onclick="manualRefresh()">
-                                        <span>🔄</span> <span>Refresh Code</span>
-                                    </button>
+                            <!-- کۆدی دڵنیایی -->
+                            <div class="action-fetch-box">
+                                <label class="field-label">کۆدی دڵنیایی</label>
+                                <button class="fetch-btn" onclick="fetchTargetLink('${d.link || ''}')">کۆدی دڵنیایی</button>
+                                
+                                <div class="input-with-copy" style="margin-top: 10px;">
+                                    <input type="text" id="fetchedResultInput" class="field-input" value="" readonly>
+                                    <button class="copy-btn" onclick="copyText('fetchedResultInput')">کۆپی</button>
                                 </div>
                             </div>
                         `;
-
-                        document.getElementById('warningModal').style.display = 'flex';
-
                     } else {
                         document.getElementById('content').innerHTML = `<div class="error-msg">${res.message}</div>`;
                     }
                 })
                 .catch(err => {
-                    document.getElementById('content').innerHTML = '<div class="error-msg">An error occurred while connecting to the system.</div>';
+                    document.getElementById('content').innerHTML = '<div class="error-msg">هەڵەیەک ڕوویدا لە پەیوەندی کردن بە سیستمەوە.</div>';
                     console.error(err);
                 });
         }
 
-        function showSecretData() {
-            document.getElementById('warningModal').style.display = 'none';
-            document.getElementById('secretContent').style.display = 'block';
-        }
-
         function fetchTargetLink(linkUrl) {
-            const resultBox = document.getElementById('fetchedResultText');
-            resultBox.innerText = 'Please wait...';
-            const uniqueUrl = linkUrl + (linkUrl.includes('?') ? '&' : '?') + '_t=' + new Date().getTime();
-
-            if (clearTimer) {
-                clearTimeout(clearTimer);
+            const resultInput = document.getElementById('fetchedResultInput');
+            
+            if (!linkUrl || linkUrl === '#') {
+                resultInput.value = 'هیچ لینکێک بوونی نییە.';
+                return;
             }
 
-            fetch(uniqueUrl)
+            resultInput.value = 'خەریکی وەرگرتنە...';
+
+            fetch(linkUrl)
                 .then(response => response.text())
                 .then(data => {
                     const numbersOnly = data.replace(/[^0-9]/g, '');
-                    resultBox.innerText = numbersOnly || '------';
-                    document.getElementById('beepSound').play().catch(() => {});
-
-                    if (numbersOnly) {
-                        clearTimer = setTimeout(() => {
-                            resultBox.innerText = '------';
-                        }, 30000); 
-                    }
+                    resultInput.value = numbersOnly || 'هیچ ژمارەیەک نەدۆزرایەوە';
                 })
                 .catch(error => {
-                    resultBox.innerText = '------';
+                    resultInput.value = 'هەڵە لە هێنانی زانیاری';
                 });
-        }
-
-        function manualRefresh() {
-            if (globalTargetLink) {
-                fetchTargetLink(globalTargetLink);
-            } else {
-                location.reload();
-            }
         }
 
         function copyText(elementId) {
