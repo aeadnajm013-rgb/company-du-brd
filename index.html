@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COMPANY DU BRA - زانیاری ئەکاونت</title>
-    <!-- بەکارهێنانی فۆنتی هاوچەرخ و زۆر جوان بۆ زمانی کوردی و ئینگلیزی -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -14,8 +13,8 @@
             font-family: 'Noto Kufi Arabic', 'Poppins', sans-serif;
         }
         body {
-            background: #090d16;
-            background: radial-gradient(circle at top, #1e1b4b 0%, #0f172a 60%, #080c14 100%);
+            background: #060911;
+            background: radial-gradient(circle at top, #151d36 0%, #080c14 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -23,17 +22,46 @@
             padding: 20px;
         }
         .container {
-            background: rgba(15, 23, 42, 0.75);
+            background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             width: 100%;
             max-width: 440px;
             border-radius: 28px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 30px rgba(59, 130, 246, 0.15);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(59, 130, 246, 0.2);
             overflow: hidden;
-            padding: 35px 25px;
+            padding: 30px 25px;
             text-align: center;
+            position: relative;
+        }
+
+        /* دوگمەی واتساپی زۆر دیار و درەوشاوە */
+        .whatsapp-banner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 16px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .whatsapp-banner:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.6);
+        }
+        .whatsapp-banner svg {
+            width: 22px;
+            height: 22px;
+            fill: #ffffff;
         }
         
         .logo-container {
@@ -43,42 +71,32 @@
             margin-bottom: 25px;
         }
 
-        /* دیزاینی لۆگۆی نوێ و سەرنجڕاکێش */
+        /* لۆگۆی نوێی ڕازاوە بە شێوازی 3D */
         .z-logo {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 50%, #1e40af 100%);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #38bdf8 0%, #3b82f6 50%, #1d4ed8 100%);
             color: #ffffff;
             font-family: 'Poppins', sans-serif;
-            font-size: 36px;
+            font-size: 42px;
             font-weight: 800;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 22px;
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+            border-radius: 26px;
+            box-shadow: 0 12px 30px rgba(56, 189, 248, 0.4), inset 0 3px 6px rgba(255, 255, 255, 0.5);
             margin-bottom: 12px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-        }
-        .z-logo::after {
-            content: '';
-            position: absolute;
-            top: -2px; left: -2px; right: -2px; bottom: -2px;
-            background: linear-gradient(135deg, #60a5fa, transparent, #3b82f6);
-            border-radius: 24px;
-            z-index: -1;
-            opacity: 0.6;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
         }
         .z-logo:hover {
-            transform: translateY(-5px) rotate(5deg) scale(1.05);
-            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.7);
+            transform: scale(1.08) rotate(-3deg);
+            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.6);
         }
 
         .company-title {
-            font-size: 19px;
+            font-size: 20px;
             color: #f8fafc;
             font-weight: 800;
             letter-spacing: 0.5px;
@@ -86,21 +104,21 @@
             font-family: 'Poppins', 'Noto Kufi Arabic', sans-serif;
         }
         .company-title span {
-            color: #60a5fa;
-            background: linear-gradient(to right, #60a5fa, #93c5fd);
+            color: #38bdf8;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .account-badge {
             background: rgba(15, 23, 42, 0.9);
-            border: 1px solid rgba(59, 130, 246, 0.4);
+            border: 1px solid rgba(56, 189, 248, 0.4);
             padding: 6px 16px;
             border-radius: 20px;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
         .account-badge span {
             font-size: 13px;
@@ -110,7 +128,7 @@
         .account-badge input {
             background: transparent;
             border: none;
-            color: #60a5fa;
+            color: #38bdf8;
             font-size: 15px;
             font-weight: 700;
             width: 75px;
@@ -149,8 +167,8 @@
             transition: all 0.3s ease;
         }
         .input-with-copy:focus-within {
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+            border-color: #38bdf8;
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
         }
         .field-input {
             flex: 1;
@@ -178,30 +196,28 @@
             min-height: 46px;
         }
         .copy-btn:hover {
-            background: #3b82f6;
-            color: #ffffff;
+            background: #38bdf8;
+            color: #0f172a;
         }
         
-        /* باکسی تایبەت بۆ کۆدی دڵنیایی */
         .action-fetch-box {
             margin-top: 22px;
             background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
-            border: 1px solid rgba(59, 130, 246, 0.3);
+            border: 1px solid rgba(56, 189, 248, 0.3);
             border-radius: 18px;
             padding: 18px;
             text-align: right;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-            position: relative;
         }
         .action-fetch-box .field-label {
-            color: #60a5fa;
+            color: #38bdf8;
             font-weight: 700;
             margin-bottom: 10px;
         }
         .fetch-btn {
             display: block;
             width: 100%;
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
             color: #ffffff;
             border: none;
             cursor: pointer;
@@ -209,17 +225,13 @@
             border-radius: 12px;
             font-size: 14px;
             font-weight: 700;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
             transition: all 0.2s ease;
             margin-bottom: 12px;
         }
         .fetch-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
-            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-        }
-        .fetch-btn:active {
-            transform: translateY(0);
+            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.6);
         }
 
         .toast {
@@ -245,6 +257,14 @@
 <body>
 
     <div class="container">
+        <!-- دوگمەی دیار و روونی واتساپ -->
+        <a id="whatsappLink" href="#" target="_blank" class="whatsapp-banner">
+            <svg viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+            </svg>
+            پەیوەندی لە ڕێگەی واتساپەوە
+        </a>
+
         <!-- لۆگۆ و ژمارەی ئەکاونت -->
         <div class="logo-container">
             <div class="z-logo">Z</div>
@@ -272,6 +292,11 @@
             document.getElementById('content').innerHTML = '<div class="error-msg">تکایە ژمارەی ئەکاونت لە لینکەکەدا دیاری بکە (نموونە: ?account=1)</div>';
         } else {
             document.getElementById('accSmallInput').value = accountNumber;
+
+            // لینکی ڕاستەوخۆی واتساپ
+            const phone = "9647517393932";
+            const message = encodeURIComponent(`سڵاو، من ئەکاونتی ژمارە ${accountNumber}م هەیە لە کۆمپانیای دوو برا.`);
+            document.getElementById('whatsappLink').href = `https://wa.me/${phone}?text=${message}`;
 
             fetch(`${scriptURL}?account=${accountNumber}`)
                 .then(response => response.json())
@@ -315,13 +340,13 @@
                                 </div>
                             </div>
 
-                            <!-- باکسی تایبەت بۆ کۆدی دڵنیایی -->
+                            <!-- کۆدی دڵنیایی -->
                             <div class="action-fetch-box">
                                 <label class="field-label">کۆدی دڵنیایی</label>
                                 <button class="fetch-btn" onclick="fetchTargetLink('${d.link || ''}')">وەرگرتنی کۆدی دڵنیایی</button>
                                 
                                 <div class="input-with-copy">
-                                    <input type="text" id="fetchedResultInput" class="field-input" value="" placeholder="کۆدەکە لێرە دەرکەوێت..." readonly style="text-align: center; font-weight: 700; color: #60a5fa; letter-spacing: 2px;">
+                                    <input type="text" id="fetchedResultInput" class="field-input" value="" placeholder="کۆدەکە لێرە دەرکەوێت..." readonly style="text-align: center; font-weight: 700; color: #38bdf8; letter-spacing: 2px;">
                                     <button class="copy-btn" onclick="copyText('fetchedResultInput')">کۆپی</button>
                                 </div>
                             </div>
@@ -336,7 +361,6 @@
                 });
         }
 
-        // دروستکردنی دەنگ کاتێک کۆدەکە دۆزرایەوە یان کلیک لەسەر دوگمەکە کرا
         function playBeepSound() {
             try {
                 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -344,23 +368,21 @@
                 const gainNode = audioCtx.createGain();
 
                 oscillator.type = 'sine';
-                oscillator.frequency.setValueAtTime(800, audioCtx.currentTime); // بەرزکردنەوەی ئاستی دەنگەکە
+                oscillator.frequency.setValueAtTime(800, audioCtx.currentTime);
                 gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
 
                 oscillator.connect(gainNode);
                 gainNode.connect(audioCtx.destination);
 
                 oscillator.start();
-                oscillator.stop(audioCtx.currentTime + 0.15); // دەنگێکی کورت 0.15 چرکەیی
+                oscillator.stop(audioCtx.currentTime + 0.15);
             } catch (e) {
-                console.log("Audio Web API is not supported in this browser.");
+                console.log("Audio API Error");
             }
         }
 
         function fetchTargetLink(linkUrl) {
             const resultInput = document.getElementById('fetchedResultInput');
-            
-            // لێدانی دەنگ کاتێک داوای کۆدەکە دەکرێت
             playBeepSound();
 
             if (!linkUrl || linkUrl === '#') {
@@ -375,7 +397,6 @@
                 .then(data => {
                     const numbersOnly = data.replace(/[^0-9]/g, '');
                     resultInput.value = numbersOnly || 'هیچ ژمارەیەک نەدۆزرایەوە';
-                    // لێدانی دەنگ کاتێک کۆدەکە دەگات
                     playBeepSound();
                 })
                 .catch(error => {
