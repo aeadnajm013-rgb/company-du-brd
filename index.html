@@ -37,7 +37,6 @@
             position: relative;
         }
 
-        /* دوگمەی واتساپ بە دەوری LED */
         .whatsapp-banner {
             display: flex;
             align-items: center;
@@ -72,14 +71,14 @@
             margin-bottom: 25px;
         }
 
-        /* لۆگۆی LED جوڵاو */
-        .z-logo {
-            width: 85px;
-            height: 85px;
+        /* لۆگۆی نوێی DB (دوو برا) بە درەوشانەوەی LED */
+        .db-logo {
+            width: 90px;
+            height: 90px;
             background: #0b1329;
             color: #60a5fa;
             font-family: 'Poppins', sans-serif;
-            font-size: 46px;
+            font-size: 38px;
             font-weight: 800;
             display: flex;
             justify-content: center;
@@ -87,6 +86,7 @@
             border-radius: 50%;
             border: 3px solid #2563eb;
             margin-bottom: 12px;
+            letter-spacing: -2px;
             position: relative;
             cursor: pointer;
             animation: ledPulse 2s infinite alternate;
@@ -151,7 +151,6 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* باکسی ئاگاداری ڕووناکیی سوور (Warning LED) */
         .warning-box {
             background: rgba(239, 68, 68, 0.1);
             border: 2px solid #ef4444;
@@ -192,10 +191,12 @@
             box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
             transition: all 0.2s ease;
         }
-        .accept-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(239, 68, 68, 0.8);
-            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+        .accept-btn:disabled {
+            background: #475569;
+            border-color: #64748b;
+            color: #94a3b8;
+            cursor: not-allowed;
+            box-shadow: none;
         }
 
         .loading, .error-msg {
@@ -228,10 +229,6 @@
             border-radius: 14px;
             overflow: hidden;
             transition: all 0.3s ease;
-        }
-        .input-with-copy:focus-within {
-            border-color: #3b82f6;
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
         }
         .field-input {
             flex: 1;
@@ -277,7 +274,6 @@
             color: #60a5fa;
             font-weight: 700;
             margin-bottom: 10px;
-            text-shadow: 0 0 5px rgba(96, 165, 250, 0.5);
         }
         .fetch-btn {
             display: block;
@@ -293,11 +289,6 @@
             box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);
             transition: all 0.2s ease;
             margin-bottom: 15px;
-        }
-        .fetch-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(59, 130, 246, 0.8);
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
         }
 
         .code-display-box {
@@ -322,7 +313,6 @@
             outline: none;
             letter-spacing: 4px;
             font-family: 'Poppins', sans-serif;
-            text-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
         }
         .timer-text {
             font-size: 11px;
@@ -364,9 +354,9 @@
             پەیوەندی لە ڕێگەی واتساپەوە
         </a>
 
-        <!-- لۆگۆ و ژمارەی ئەکاونت -->
+        <!-- لۆگۆی DB و ژمارەی ئەکاونت -->
         <div class="logo-container">
-            <div class="z-logo">Z</div>
+            <div class="db-logo">DB</div>
             <div class="company-title">COMPANY <span>DU BRA</span></div>
             
             <div class="account-badge">
@@ -375,7 +365,7 @@
             </div>
         </div>
 
-        <!-- باکسی ئاگاداری کە سەرەتا دەربکەوێت -->
+        <!-- باکسی ئاگاداری بە تایمەری 5 چرکەیی -->
         <div id="warningBox" class="warning-box">
             <div class="warning-title">
                 ⚠️ ئاگادارییەکی گرنگ
@@ -383,7 +373,9 @@
             <div class="warning-text">
                 تکایە بەهیچ شێوەیەک ئەم Apple ID لە Settings ی موبایلەکەت داخل مەکە! تەنها لە App Store داخل بکە.
             </div>
-            <button class="accept-btn" onclick="acceptAgreement()">من ڕازیم</button>
+            <button id="acceptBtn" class="accept-btn" disabled onclick="acceptAgreement()">
+                چاوەڕوان بە (5)...
+            </button>
         </div>
 
         <div id="content" style="display: none;">
@@ -398,15 +390,41 @@
         const accountNumber = urlParams.get('account');
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwQTQ1ISmZI6mX9QCqIbZiXO4-uc0bthCrO9Nmu1FO0xX8L_6Eoap9SEm3P9ZEwZNPW/exec';
         let countdownTimer = null;
+        let fetchedData = null; // بۆ هەڵگرتنی زانیارییەکان لە پشتەوە
 
+        // دەستپێکردنی ڕاستەوخۆ لە پشتەوە کاتێک پەڕەکە دەکرێتەوە
         if (accountNumber) {
             document.getElementById('accSmallInput').value = accountNumber;
             const phone = "9647517393932";
             const message = encodeURIComponent(`سڵاو، من ئەکاونتی ژمارە ${accountNumber}م هەیە لە کۆمپانیای دوو برا.`);
             document.getElementById('whatsappLink').href = `https://wa.me/${phone}?text=${message}`;
+
+            // هێنانی زانیارییەکان لە پشتەوە دیوارەکە
+            fetch(`${scriptURL}?account=${accountNumber}`)
+                .then(response => response.json())
+                .then(res => {
+                    fetchedData = res;
+                })
+                .catch(err => {
+                    fetchedData = { status: 'error', message: 'هەڵەیەک ڕوویدا لە پەیوەندی کردن بە سیستمەوە.' };
+                });
         }
 
-        // کرداری داگرتنی دوگمەی "من ڕازیم"
+        // تایمەری 5 چرکەیی بۆ چاڵاککردنی دوگمەی "من ڕازیم"
+        let waitTime = 5;
+        const acceptBtn = document.getElementById('acceptBtn');
+
+        const waitTimer = setInterval(() => {
+            waitTime--;
+            if (waitTime > 0) {
+                acceptBtn.innerText = `چاوەڕوان بە (${waitTime})...`;
+            } else {
+                clearInterval(waitTimer);
+                acceptBtn.innerText = "من ڕازیم";
+                acceptBtn.disabled = false;
+            }
+        }, 1000);
+
         function acceptAgreement() {
             document.getElementById('warningBox').style.display = 'none';
             document.getElementById('content').style.display = 'block';
@@ -416,68 +434,70 @@
                 return;
             }
 
-            fetch(`${scriptURL}?account=${accountNumber}`)
-                .then(response => response.json())
-                .then(res => {
-                    if (res.status === 'success') {
-                        let d = res.data;
-                        document.getElementById('content').innerHTML = `
-                            <!-- ئیمەیل (Email) -->
-                            <div class="field-group">
-                                <label class="field-label">ئیمەیل (Email)</label>
-                                <div class="input-with-copy">
-                                    <input type="text" id="emailInput" class="field-input" value="${d.email || ''}" readonly>
-                                    <button class="copy-btn" onclick="copyText('emailInput')">کۆپی</button>
-                                </div>
-                            </div>
-
-                            <!-- پاسوۆرد (Password) -->
-                            <div class="field-group">
-                                <label class="field-label">پاسوۆرد (Password)</label>
-                                <div class="input-with-copy">
-                                    <input type="text" id="passInput" class="field-input" value="${d.password || ''}" readonly>
-                                    <button class="copy-btn" onclick="copyText('passInput')">کۆپی</button>
-                                </div>
-                            </div>
-
-                            <!-- ڕۆژی لەدایکبوون (Birthday) -->
-                            <div class="field-group">
-                                <label class="field-label">ڕۆژی لەدایکبوون (Birthday)</label>
-                                <div class="input-with-copy">
-                                    <input type="text" id="bdayInput" class="field-input" value="${d.birthday || ''}" readonly>
-                                    <button class="copy-btn" onclick="copyText('bdayInput')">کۆپی</button>
-                                </div>
-                            </div>
-
-                            <!-- ژمارەی تەلەفۆن (Phone) -->
-                            <div class="field-group">
-                                <label class="field-label">ژمارەی تەلەفۆن (Phone)</label>
-                                <div class="input-with-copy">
-                                    <input type="text" id="phoneInput" class="field-input" value="${d.phone || ''}" readonly>
-                                    <button class="copy-btn" onclick="copyText('phoneInput')">کۆپی</button>
-                                </div>
-                            </div>
-
-                            <!-- باکسی تایبەت بە کۆدی دڵنیایی -->
-                            <div class="action-fetch-box">
-                                <label class="field-label">کۆدی دڵنیایی</label>
-                                <button class="fetch-btn" onclick="fetchTargetLink('${d.link || ''}')">وەرگرتنی کۆدی دڵنیایی</button>
-                                
-                                <div class="code-display-box">
-                                    <input type="text" id="fetchedResultInput" class="code-input-field" value="" placeholder="------" readonly>
-                                    <button class="copy-btn" style="border-radius: 10px;" onclick="copyText('fetchedResultInput')">کۆپی</button>
-                                </div>
-                                <div id="timerNotice" class="timer-text"></div>
-                            </div>
-                        `;
-                    } else {
-                        document.getElementById('content').innerHTML = `<div class="error-msg">${res.message}</div>`;
+            // ئەگەر زانیارییەکان گەشتبوون نیشانی بدە، ئەگەر نا چاوەڕوان بە
+            if (fetchedData) {
+                renderData(fetchedData);
+            } else {
+                // ئەگەر پەیوەندییەکە لە پشتەوە هێشتا تەواو نەبووبوو
+                const checkInterval = setInterval(() => {
+                    if (fetchedData) {
+                        clearInterval(checkInterval);
+                        renderData(fetchedData);
                     }
-                })
-                .catch(err => {
-                    document.getElementById('content').innerHTML = '<div class="error-msg">هەڵەیەک ڕوویدا لە پەیوەندی کردن بە سیستمەوە.</div>';
-                    console.error(err);
-                });
+                }, 200);
+            }
+        }
+
+        function renderData(res) {
+            if (res.status === 'success') {
+                let d = res.data;
+                document.getElementById('content').innerHTML = `
+                    <div class="field-group">
+                        <label class="field-label">ئیمەیل (Email)</label>
+                        <div class="input-with-copy">
+                            <input type="text" id="emailInput" class="field-input" value="${d.email || ''}" readonly>
+                            <button class="copy-btn" onclick="copyText('emailInput')">کۆپی</button>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label class="field-label">پاسوۆرد (Password)</label>
+                        <div class="input-with-copy">
+                            <input type="text" id="passInput" class="field-input" value="${d.password || ''}" readonly>
+                            <button class="copy-btn" onclick="copyText('passInput')">کۆپی</button>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label class="field-label">ڕۆژی لەدایکبوون (Birthday)</label>
+                        <div class="input-with-copy">
+                            <input type="text" id="bdayInput" class="field-input" value="${d.birthday || ''}" readonly>
+                            <button class="copy-btn" onclick="copyText('bdayInput')">کۆپی</button>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label class="field-label">ژمارەی تەلەفۆن (Phone)</label>
+                        <div class="input-with-copy">
+                            <input type="text" id="phoneInput" class="field-input" value="${d.phone || ''}" readonly>
+                            <button class="copy-btn" onclick="copyText('phoneInput')">کۆپی</button>
+                        </div>
+                    </div>
+
+                    <div class="action-fetch-box">
+                        <label class="field-label">کۆدی دڵنیایی</label>
+                        <button class="fetch-btn" onclick="fetchTargetLink('${d.link || ''}')">وەرگرتنی کۆدی دڵنیایی</button>
+                        
+                        <div class="code-display-box">
+                            <input type="text" id="fetchedResultInput" class="code-input-field" value="" placeholder="------" readonly>
+                            <button class="copy-btn" style="border-radius: 10px;" onclick="copyText('fetchedResultInput')">کۆپی</button>
+                        </div>
+                        <div id="timerNotice" class="timer-text"></div>
+                    </div>
+                `;
+            } else {
+                document.getElementById('content').innerHTML = `<div class="error-msg">${res.message}</div>`;
+            }
         }
 
         function playBeepSound() {
