@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COMPANY DU BRA - زانیاری ئەکاونت</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- بەکارهێنانی فۆنتی هاوچەرخ و زۆر جوان بۆ زمانی کوردی و ئینگلیزی -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Tajawal', sans-serif;
+            font-family: 'Noto Kufi Arabic', 'Poppins', sans-serif;
         }
         body {
-            background: #0f172a;
-            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            background: #090d16;
+            background: radial-gradient(circle at top, #1e1b4b 0%, #0f172a 60%, #080c14 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -22,16 +23,16 @@
             padding: 20px;
         }
         .container {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             width: 100%;
-            max-width: 420px;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            max-width: 440px;
+            border-radius: 28px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 30px rgba(59, 130, 246, 0.15);
             overflow: hidden;
-            padding: 30px 25px;
+            padding: 35px 25px;
             text-align: center;
         }
         
@@ -39,47 +40,70 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
+
+        /* دیزاینی لۆگۆی نوێ و سەرنجڕاکێش */
         .z-logo {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 50%, #1e40af 100%);
             color: #ffffff;
-            font-size: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 36px;
             font-weight: 800;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.5);
-            margin-bottom: 10px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-        .company-title {
-            font-size: 18px;
-            color: #f8fafc;
-            font-weight: 700;
-            letter-spacing: 0.5px;
+            border-radius: 22px;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.3);
             margin-bottom: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
         }
-        .company-title span {
-            color: #3b82f6;
+        .z-logo::after {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(135deg, #60a5fa, transparent, #3b82f6);
+            border-radius: 24px;
+            z-index: -1;
+            opacity: 0.6;
+        }
+        .z-logo:hover {
+            transform: translateY(-5px) rotate(5deg) scale(1.05);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.7);
         }
 
-        /* خانەی بچووکی ژمارەی ئەکاونت لە ژێر لۆگۆ */
+        .company-title {
+            font-size: 19px;
+            color: #f8fafc;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            font-family: 'Poppins', 'Noto Kufi Arabic', sans-serif;
+        }
+        .company-title span {
+            color: #60a5fa;
+            background: linear-gradient(to right, #60a5fa, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
         .account-badge {
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            padding: 6px 14px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            padding: 6px 16px;
             border-radius: 20px;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 5px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
         .account-badge span {
-            font-size: 12px;
+            font-size: 13px;
             color: #94a3b8;
             font-weight: 600;
         }
@@ -87,28 +111,29 @@
             background: transparent;
             border: none;
             color: #60a5fa;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 700;
-            width: 70px;
+            width: 75px;
             outline: none;
             text-align: center;
+            font-family: 'Poppins', sans-serif;
         }
 
         .loading, .error-msg {
             padding: 20px;
             color: #94a3b8;
-            font-size: 15px;
+            font-size: 14px;
         }
         .error-msg {
             color: #f87171;
         }
         
         .field-group {
-            margin-bottom: 15px;
+            margin-bottom: 16px;
             text-align: right;
         }
         .field-label {
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 600;
             color: #cbd5e1;
             margin-bottom: 6px;
@@ -117,15 +142,15 @@
         .input-with-copy {
             display: flex;
             align-items: center;
-            background: rgba(15, 23, 42, 0.6);
+            background: rgba(15, 23, 42, 0.7);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
+            border-radius: 14px;
             overflow: hidden;
             transition: all 0.3s ease;
         }
         .input-with-copy:focus-within {
             border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
         }
         .field-input {
             flex: 1;
@@ -136,52 +161,65 @@
             color: #f1f5f9;
             outline: none;
             width: 100%;
+            font-family: 'Poppins', 'Noto Kufi Arabic', sans-serif;
         }
         .copy-btn {
-            background: rgba(51, 65, 85, 0.5);
+            background: rgba(51, 65, 85, 0.4);
             border: none;
-            padding: 0 15px;
+            padding: 0 16px;
             cursor: pointer;
             color: #e2e8f0;
             font-size: 12px;
-            font-weight: 600;
+            font-weight: 700;
             transition: background 0.2s, color 0.2s;
             display: flex;
             align-items: center;
             border-right: 1px solid rgba(255, 255, 255, 0.05);
-            min-height: 45px;
+            min-height: 46px;
         }
         .copy-btn:hover {
             background: #3b82f6;
             color: #ffffff;
         }
         
+        /* باکسی تایبەت بۆ کۆدی دڵنیایی */
         .action-fetch-box {
-            margin-top: 15px;
-            background: rgba(15, 23, 42, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 15px;
+            margin-top: 22px;
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 18px;
+            padding: 18px;
             text-align: right;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            position: relative;
+        }
+        .action-fetch-box .field-label {
+            color: #60a5fa;
+            font-weight: 700;
+            margin-bottom: 10px;
         }
         .fetch-btn {
             display: block;
             width: 100%;
-            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
             color: #ffffff;
             border: none;
             cursor: pointer;
-            padding: 12px;
+            padding: 13px;
             border-radius: 12px;
             font-size: 14px;
             font-weight: 700;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
-            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+            transition: all 0.2s ease;
             margin-bottom: 12px;
         }
         .fetch-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        }
+        .fetch-btn:active {
+            transform: translateY(0);
         }
 
         .toast {
@@ -191,12 +229,12 @@
             transform: translateX(-50%) translateY(100px);
             background: #10b981;
             color: white;
-            padding: 10px 22px;
+            padding: 10px 24px;
             border-radius: 30px;
-            font-size: 14px;
-            font-weight: 600;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             z-index: 1000;
         }
         .toast.show {
@@ -233,7 +271,6 @@
         if (!accountNumber) {
             document.getElementById('content').innerHTML = '<div class="error-msg">تکایە ژمارەی ئەکاونت لە لینکەکەدا دیاری بکە (نموونە: ?account=1)</div>';
         } else {
-            // دانانی ژمارەی ئەکاونت لە باجە بچووکەکەی سەرەوە ڕاستەوخۆ
             document.getElementById('accSmallInput').value = accountNumber;
 
             fetch(`${scriptURL}?account=${accountNumber}`)
@@ -278,13 +315,13 @@
                                 </div>
                             </div>
 
-                            <!-- کۆدی دڵنیایی -->
+                            <!-- باکسی تایبەت بۆ کۆدی دڵنیایی -->
                             <div class="action-fetch-box">
                                 <label class="field-label">کۆدی دڵنیایی</label>
-                                <button class="fetch-btn" onclick="fetchTargetLink('${d.link || ''}')">کۆدی دڵنیایی</button>
+                                <button class="fetch-btn" onclick="fetchTargetLink('${d.link || ''}')">وەرگرتنی کۆدی دڵنیایی</button>
                                 
-                                <div class="input-with-copy" style="margin-top: 10px;">
-                                    <input type="text" id="fetchedResultInput" class="field-input" value="" readonly>
+                                <div class="input-with-copy">
+                                    <input type="text" id="fetchedResultInput" class="field-input" value="" placeholder="کۆدەکە لێرە دەرکەوێت..." readonly style="text-align: center; font-weight: 700; color: #60a5fa; letter-spacing: 2px;">
                                     <button class="copy-btn" onclick="copyText('fetchedResultInput')">کۆپی</button>
                                 </div>
                             </div>
@@ -299,9 +336,33 @@
                 });
         }
 
+        // دروستکردنی دەنگ کاتێک کۆدەکە دۆزرایەوە یان کلیک لەسەر دوگمەکە کرا
+        function playBeepSound() {
+            try {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(800, audioCtx.currentTime); // بەرزکردنەوەی ئاستی دەنگەکە
+                gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+
+                oscillator.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+
+                oscillator.start();
+                oscillator.stop(audioCtx.currentTime + 0.15); // دەنگێکی کورت 0.15 چرکەیی
+            } catch (e) {
+                console.log("Audio Web API is not supported in this browser.");
+            }
+        }
+
         function fetchTargetLink(linkUrl) {
             const resultInput = document.getElementById('fetchedResultInput');
             
+            // لێدانی دەنگ کاتێک داوای کۆدەکە دەکرێت
+            playBeepSound();
+
             if (!linkUrl || linkUrl === '#') {
                 resultInput.value = 'هیچ لینکێک بوونی نییە.';
                 return;
@@ -314,6 +375,8 @@
                 .then(data => {
                     const numbersOnly = data.replace(/[^0-9]/g, '');
                     resultInput.value = numbersOnly || 'هیچ ژمارەیەک نەدۆزرایەوە';
+                    // لێدانی دەنگ کاتێک کۆدەکە دەگات
+                    playBeepSound();
                 })
                 .catch(error => {
                     resultInput.value = 'هەڵە لە هێنانی زانیاری';
@@ -322,6 +385,8 @@
 
         function copyText(elementId) {
             const inputElement = document.getElementById(elementId);
+            if(!inputElement.value) return;
+
             inputElement.select();
             inputElement.setSelectionRange(0, 99999);
             navigator.clipboard.writeText(inputElement.value);
