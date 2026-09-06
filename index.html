@@ -75,41 +75,38 @@
         }
 
         .db-logo {
-            width: 85px;
-            height: 85px;
-            background: #0b1329;
-            color: #60a5fa;
-            font-family: 'Poppins', sans-serif;
-            font-size: 36px;
-            font-weight: 800;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
-            border: 3px solid #2563eb;
-            margin-bottom: 10px;
-            letter-spacing: -2px;
+            margin-bottom: 12px;
             position: relative;
             cursor: pointer;
             animation: ledPulse 2s infinite alternate;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #030712;
+            padding: 2px;
+        }
+
+        .db-logo svg {
+            width: 100%;
+            height: 100%;
         }
 
         @keyframes ledPulse {
             0% {
-                box-shadow: 0 0 10px #2563eb, inset 0 0 10px #2563eb;
-                text-shadow: 0 0 5px #60a5fa;
-                border-color: #2563eb;
+                box-shadow: 0 0 12px #2563eb, inset 0 0 8px #2563eb;
+                border: 2px solid #2563eb;
             }
             50% {
                 box-shadow: 0 0 25px #3b82f6, inset 0 0 15px #3b82f6;
-                text-shadow: 0 0 15px #93c5fd, 0 0 25px #3b82f6;
-                border-color: #60a5fa;
+                border: 2px solid #60a5fa;
                 transform: scale(1.03);
             }
             100% {
                 box-shadow: 0 0 35px #1d4ed8, inset 0 0 20px #1d4ed8;
-                text-shadow: 0 0 20px #60a5fa, 0 0 30px #2563eb;
-                border-color: #1d4ed8;
+                border: 2px solid #1d4ed8;
             }
         }
 
@@ -446,7 +443,46 @@
 
         <!-- لۆگۆی DB و ژمارەی ئەکاونت -->
         <div class="logo-container">
-            <div class="db-logo">DB</div>
+            <div class="db-logo">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <!-- خەتە خولاوەکەی نووسینی سەرەوە و خوارەوە -->
+                        <path id="textCircleTop" d="M 30,100 A 70,70 0 0,1 170,100" />
+                        <path id="textCircleBottom" d="M 170,100 A 70,70 0 0,1 30,100" />
+                    </defs>
+                    <!-- بازنەی دەروە و ناوەوە -->
+                    <circle cx="100" cy="100" r="95" fill="none" stroke="#60a5fa" stroke-width="4" />
+                    <circle cx="100" cy="100" r="76" fill="none" stroke="#3b82f6" stroke-width="2" />
+                    
+                    <!-- نووسینی دەوری لۆگۆکە -->
+                    <text fill="#ffffff" font-size="16" font-weight="bold" font-family="'Poppins', sans-serif" letter-spacing="1.5">
+                        <textPath href="#textCircleTop" startOffset="50%" text-anchor="middle">COMPANY DU BRA</textPath>
+                    </text>
+                    <text fill="#ffffff" font-size="14" font-weight="bold" font-family="'Poppins', sans-serif" letter-spacing="1">
+                        <textPath href="#textCircleBottom" startOffset="50%" text-anchor="middle">IRAQ KURDISTAN</textPath>
+                    </text>
+                    
+                    <!-- درەختە لایەکیەکان (Wheat/Laurel Wreath) -->
+                    <g fill="#60a5fa">
+                        <!-- لای چەپ -->
+                        <path d="M 40,95 C 32,85 28,70 32,60 C 35,70 42,80 43,90 Z" />
+                        <path d="M 42,105 C 33,115 28,130 33,140 C 36,130 43,120 44,110 Z" />
+                        <!-- لای ڕاست -->
+                        <path d="M 160,95 C 168,85 172,70 168,60 C 165,70 158,80 157,90 Z" />
+                        <path d="M 158,105 C 167,115 172,130 167,140 C 164,130 157,120 156,110 Z" />
+                    </g>
+                    
+                    <!-- سێوی ئاپڵ لە ناوەڕاست -->
+                    <g transform="translate(100, 103) scale(1.15)">
+                        <!-- گەڵای سێوەکە -->
+                        <path d="M 2,-28 C 8,-38 16,-34 14,-26 C 6,-24 0,-26 2,-28 Z" fill="#60a5fa" />
+                        <!-- جەستەی سێوەکە لەگەڵ گازەکە -->
+                        <path d="M -18,-20 C -26,-20 -32,-10 -32,2 C -32,18 -18,30 -10,30 C -4,30 -2,27 0,27 C 2,27 4,30 10,30 C 18,30 32,18 32,2 C 32,-2 30,-5 28,-7 C 23,-2 16,0 16,-8 C 16,-18 25,-20 25,-20 C 20,-24 10,-22 0,-18 C -6,-22 -14,-20 -18,-20 Z" fill="#ffffff" />
+                        <!-- نووسینی DB لە ناوەڕاستی سێوەکە -->
+                        <text x="0" y="7" font-family="'Poppins', sans-serif" font-weight="900" font-size="22" fill="#030712" text-anchor="middle" letter-spacing="-1">DB</text>
+                    </g>
+                </svg>
+            </div>
             <div class="company-title">COMPANY <span>DU BRA</span></div>
             
             <div class="account-badge">
