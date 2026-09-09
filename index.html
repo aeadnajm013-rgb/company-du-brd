@@ -260,7 +260,6 @@
             box-shadow: 0 0 10px #2563eb;
         }
         
-        /* باکسی کۆدەکە (پیشاندانی کۆد لە سەرەوە و دوگمە لە خوارەوە) */
         .action-fetch-box {
             margin: 14px 0;
             background: rgba(3, 7, 18, 0.95);
@@ -322,7 +321,6 @@
             min-height: 14px;
         }
 
-        /* دوگمەی کردنەوەی پەڕەی دووەم بۆ زانیارییە شاراوەکان */
         .show-modal-btn {
             width: 100%;
             background: rgba(30, 41, 59, 0.8);
@@ -347,7 +345,6 @@
             box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
         }
 
-        /* پەڕەی نوێ (Modal) بۆ پیشاندانی ڕۆژی لەدایکبوون و ژمارەی تەلەفۆن */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -446,15 +443,12 @@
             <div class="db-logo">
                 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <!-- خەتە خولاوەکەی نووسینی سەرەوە و خوارەوە -->
                         <path id="textCircleTop" d="M 30,100 A 70,70 0 0,1 170,100" />
                         <path id="textCircleBottom" d="M 170,100 A 70,70 0 0,1 30,100" />
                     </defs>
-                    <!-- بازنەی دەروە و ناوەوە -->
                     <circle cx="100" cy="100" r="95" fill="none" stroke="#60a5fa" stroke-width="4" />
                     <circle cx="100" cy="100" r="76" fill="none" stroke="#3b82f6" stroke-width="2" />
                     
-                    <!-- نووسینی دەوری لۆگۆکە -->
                     <text fill="#ffffff" font-size="16" font-weight="bold" font-family="'Poppins', sans-serif" letter-spacing="1.5">
                         <textPath href="#textCircleTop" startOffset="50%" text-anchor="middle">COMPANY DU BRA</textPath>
                     </text>
@@ -462,23 +456,16 @@
                         <textPath href="#textCircleBottom" startOffset="50%" text-anchor="middle">IRAQ KURDISTAN</textPath>
                     </text>
                     
-                    <!-- درەختە لایەکیەکان (Wheat/Laurel Wreath) -->
                     <g fill="#60a5fa">
-                        <!-- لای چەپ -->
                         <path d="M 40,95 C 32,85 28,70 32,60 C 35,70 42,80 43,90 Z" />
                         <path d="M 42,105 C 33,115 28,130 33,140 C 36,130 43,120 44,110 Z" />
-                        <!-- لای ڕاست -->
                         <path d="M 160,95 C 168,85 172,70 168,60 C 165,70 158,80 157,90 Z" />
                         <path d="M 158,105 C 167,115 172,130 167,140 C 164,130 157,120 156,110 Z" />
                     </g>
                     
-                    <!-- سێوی ئاپڵ لە ناوەڕاست -->
                     <g transform="translate(100, 103) scale(1.15)">
-                        <!-- گەڵای سێوەکە -->
                         <path d="M 2,-28 C 8,-38 16,-34 14,-26 C 6,-24 0,-26 2,-28 Z" fill="#60a5fa" />
-                        <!-- جەستەی سێوەکە لەگەڵ گازەکە -->
                         <path d="M -18,-20 C -26,-20 -32,-10 -32,2 C -32,18 -18,30 -10,30 C -4,30 -2,27 0,27 C 2,27 4,30 10,30 C 18,30 32,18 32,2 C 32,-2 30,-5 28,-7 C 23,-2 16,0 16,-8 C 16,-18 25,-20 25,-20 C 20,-24 10,-22 0,-18 C -6,-22 -14,-20 -18,-20 Z" fill="#ffffff" />
-                        <!-- نووسینی DB لە ناوەڕاستی سێوەکە -->
                         <text x="0" y="7" font-family="'Poppins', sans-serif" font-weight="900" font-size="22" fill="#030712" text-anchor="middle" letter-spacing="-1">DB</text>
                     </g>
                 </svg>
@@ -600,7 +587,6 @@
             if (res.status === 'success') {
                 let d = res.data;
                 
-                // پڕکردنەوەی بەهاکانی پەڕەی دووەم
                 document.getElementById('bdayInput').value = d.birthday || '';
                 document.getElementById('phoneInput').value = d.phone || '';
 
@@ -621,7 +607,6 @@
                         </div>
                     </div>
 
-                    <!-- باکسی وەرگرتنی کۆدەکە (کۆد سەرەوە و دوگمە خوارەوە) -->
                     <div class="action-fetch-box">
                         <label class="field-label">کۆدی دڵنیایی</label>
                         
@@ -634,7 +619,6 @@
                         <button class="fetch-btn" onclick="fetchTargetLink('${d.link || ''}')">وەرگرتنی کۆدی دڵنیایی</button>
                     </div>
 
-                    <!-- دوگمەی ئایکۆندار بۆ پیشاندانی ڕۆژی لەدایکبوون و ژمارەی تەلەفۆن لە پەڕەیەکی تر -->
                     <button class="show-modal-btn" onclick="toggleModal(true)">
                         <span>👁️</span> پێشان دانی زانیارییە شاراوەکان (روز / ژمارە)
                     </button>
@@ -673,7 +657,8 @@
             }
         }
 
-        function fetchTargetLink(linkUrl) {
+        // ئەم بەشە نوێکراوەتەوە بۆ پشتگیری هەردوو جۆری لینکەکە
+        async function fetchTargetLink(linkUrl) {
             const resultInput = document.getElementById('fetchedResultInput');
             const timerNotice = document.getElementById('timerNotice');
             
@@ -688,46 +673,65 @@
 
             resultInput.value = '...';
 
-            fetch(linkUrl)
-                .then(response => response.text())
-                .then(data => {
-                    const numbersOnly = data.replace(/[^0-9]/g, '');
-                    
-                    if (numbersOnly) {
-                        resultInput.value = numbersOnly;
-                        playBeepSound();
+            const processResponseText = (data) => {
+                const numbersOnly = data.replace(/[^0-9]/g, '');
+                
+                if (numbersOnly) {
+                    resultInput.value = numbersOnly;
+                    playBeepSound();
 
-                        let timeLeft = 25;
-                        timerNotice.innerText = `کۆدەکە دوای ${timeLeft} چرکەی تر دەسڕێتەوە`;
+                    let timeLeft = 25;
+                    timerNotice.innerText = `کۆدەکە دوای ${timeLeft} چرکەی تر دەسڕێتەوە`;
 
-                        countdownTimer = setInterval(() => {
-                            timeLeft--;
-                            if (timeLeft > 0) {
-                                timerNotice.innerText = `کۆدەکە دوای ${timeLeft} چرکەی تر دەسڕێتەوە`;
-                            } else {
-                                clearInterval(countdownTimer);
-                                resultInput.value = "";
-                                timerNotice.innerText = "کۆدەکە سڕایەوە! کۆتایی هات.";
-                            }
-                        }, 1000);
+                    countdownTimer = setInterval(() => {
+                        timeLeft--;
+                        if (timeLeft > 0) {
+                            timerNotice.innerText = `کۆدەکە دوای ${timeLeft} چرکەی تر دەسڕێتەوە`;
+                        } else {
+                            clearInterval(countdownTimer);
+                            resultInput.value = "";
+                            timerNotice.innerText = "کۆدەکە سڕایەوە! کۆتایی هات.";
+                        }
+                    }, 1000);
 
-                    } else {
-                        resultInput.value = 'نەدۆزرایەوە';
-                    }
-                })
-                .catch(error => {
+                } else {
+                    resultInput.value = 'نەدۆزرایەوە';
+                }
+            };
+
+            // تاقیکردنەوەی خوێندنەوە ڕاستەوخۆ؛ ئەگەر سەرکەوتوو نەبوو بە پروکسی Proxy دەیتوێنێتەوە
+            try {
+                let response = await fetch(linkUrl);
+                let data = await response.text();
+                processResponseText(data);
+            } catch (err) {
+                // ئەگەر کێشەی CORS یان SSL هەبوو لە IP دا، ئەم CORS Proxy بەکاردێنێت:
+                try {
+                    let proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(linkUrl);
+                    let proxyResponse = await fetch(proxyUrl);
+                    let proxyData = await proxyResponse.json();
+                    processResponseText(proxyData.contents);
+                } catch (proxyErr) {
                     resultInput.value = 'هەڵە';
-                });
+                }
+            }
         }
 
         function copyText(elementId) {
             const inputElement = document.getElementById(elementId);
-            if(!inputElement.value) return;
+            if (inputElement && inputElement.value && inputElement.value !== '...' && inputElement.value !== '------') {
+                inputElement.select();
+                inputElement.setSelectionRange(0, 99999);
+                navigator.clipboard.writeText(inputElement.value).then(() => {
+                    showToast();
+                }).catch(() => {
+                    document.execCommand('copy');
+                    showToast();
+                });
+            }
+        }
 
-            inputElement.select();
-            inputElement.setSelectionRange(0, 99999);
-            navigator.clipboard.writeText(inputElement.value);
-
+        function showToast() {
             const toast = document.getElementById('toast');
             toast.classList.add('show');
             setTimeout(() => {
@@ -735,6 +739,5 @@
             }, 2000);
         }
     </script>
-
 </body>
 </html>
