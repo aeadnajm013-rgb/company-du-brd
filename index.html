@@ -37,7 +37,6 @@
             position: relative;
         }
 
-        /* دوگمەی واتساپی بازنەیی */
         .whatsapp-banner {
             position: absolute;
             top: 15px;
@@ -438,7 +437,6 @@
             </svg>
         </a>
 
-        <!-- لۆگۆی DB و ژمارەی ئەکاونت -->
         <div class="logo-container">
             <div class="db-logo">
                 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -478,7 +476,6 @@
             </div>
         </div>
 
-        <!-- باکسی ئاگاداری -->
         <div id="warningBox" class="warning-box">
             <div class="warning-title">
                 ⚠️ ئاگادارییەکی گرنگ
@@ -497,7 +494,6 @@
         </div>
     </div>
 
-    <!-- پەڕەی دووەم (Modal) بۆ زانیارییە شاراوەکان -->
     <div id="infoModal" class="modal-overlay">
         <div class="modal-card">
             <div class="modal-header">
@@ -522,6 +518,9 @@
             </div>
         </div>
     </div>
+
+    <!-- فایمی شاراوە بۆ خوێندنەوەی لینکی IP بەبێ کێشەی CORS -->
+    <iframe id="hiddenFrame" style="display:none;" onload="readFrameContent()"></iframe>
 
     <div id="toast" class="toast">بە سەرکەوتوویی کۆپی کرا!</div>
 
@@ -657,8 +656,9 @@
             }
         }
 
-        // ئەم بەشە نوێکراوەتەوە بۆ پشتگیری هەردوو جۆری لینکەکە
-        async function fetchTargetLink(linkUrl) {
+        let globalTargetLink = '';
+
+        function fetchTargetLink(linkUrl) {
             const resultInput = document.getElementById('fetchedResultInput');
             const timerNotice = document.getElementById('timerNotice');
             
@@ -672,9 +672,31 @@
             }
 
             resultInput.value = '...';
+            globalTargetLink = linkUrl;
 
-            const processResponseText = (data) => {
-                const numbersOnly = data.replace(/[^0-9]/g, '');
+            // بەکارهێنانی داواکاری لە ڕێگەی Iframe بۆ تێپەڕاندنی بلۆکی پۆرت و IP
+            document.getElementById('hiddenFrame').src = linkUrl;
+        }
+
+        function readFrameContent() {
+            const resultInput = document.getElementById('fetchedResultInput');
+            const timerNotice = document.getElementById('timerNotice');
+            
+            if (!globalTargetLink) return;
+
+            try {
+                const iframe = document.getElementById('hiddenFrame');
+                let frameText = "";
+                
+                try {
+                    frameText = iframe.contentDocument.body.innerText;
+                } catch (e) {
+                    // ئەگەر وێبگەڕەکە ڕێگەی نەدا بەهۆی پاراستنەوە، تەنها دەتوانرێت بە کراوەیی لە تابێکی نوێدا بکرێتەوە
+                    resultInput.value = 'کردنەوەی لای خۆت';
+                    return;
+                }
+
+                const numbersOnly = frameText.replace(/[^0-9]/g, '');
                 
                 if (numbersOnly) {
                     resultInput.value = numbersOnly;
@@ -697,23 +719,8 @@
                 } else {
                     resultInput.value = 'نەدۆزرایەوە';
                 }
-            };
-
-            // تاقیکردنەوەی خوێندنەوە ڕاستەوخۆ؛ ئەگەر سەرکەوتوو نەبوو بە پروکسی Proxy دەیتوێنێتەوە
-            try {
-                let response = await fetch(linkUrl);
-                let data = await response.text();
-                processResponseText(data);
             } catch (err) {
-                // ئەگەر کێشەی CORS یان SSL هەبوو لە IP دا، ئەم CORS Proxy بەکاردێنێت:
-                try {
-                    let proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(linkUrl);
-                    let proxyResponse = await fetch(proxyUrl);
-                    let proxyData = await proxyResponse.json();
-                    processResponseText(proxyData.contents);
-                } catch (proxyErr) {
-                    resultInput.value = 'هەڵە';
-                }
+                resultInput.value = 'هەڵە لە خوێندنەوە';
             }
         }
 
